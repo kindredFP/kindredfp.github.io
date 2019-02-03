@@ -6,6 +6,6 @@ This was created so I can have a landing page for my github account.  I want to 
 
 ## Notes
 
-Building and maintaining this site has helped me learn and apply my HTML/CSS knowledge.
+Building and maintaining this site has helped me learn and apply my CSS and Javascript knowledge.
 
 
