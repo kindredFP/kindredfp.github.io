@@ -2,10 +2,8 @@
 
 ## Overview
 
-This was created so I can have a landing page for my github account.  I want to give credit to Start Bootstrap as they were able to help me build this site very quickly.
+Welcome to my GitHub Page! This site serves as a landing page for my GitHub account, showcasing my projects, skills, and professional background. Special thanks to [Start Bootstrap](https://startbootstrap.com) for their fantastic templates, which helped me build this site quickly and efficiently.
 
 ## Notes
 
-Building and maintaining this site has helped me learn and apply my CSS and Javascript knowledge.
-
-
+Maintaining this site has been a valuable learning experience. It has allowed me to enhance my CSS and JavaScript skills, and apply what I've learned in a real-world project.
