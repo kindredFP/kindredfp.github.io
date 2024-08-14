@@ -28,13 +28,14 @@
         "type": "git",
         "url": "https://github.com/BlackrockDigital/startbootstrap-creative.git"
     },
-    "dependencies": {
-        "@fortawesome/fontawesome-free": "5.9.0",
-        "bootstrap": "4.3.1",
-        "jquery": "3.5.0",
-        "jquery.easing": "^1.4.1",
-        "magnific-popup": "^1.1.0"
-    },
+"dependencies": {
+    "@fortawesome/fontawesome-free": "5.15.4",  
+    "bootstrap": "^5.3.0",  
+    "jquery": "3.6.0",  
+    "jquery.easing": "^1.4.1",
+    "magnific-popup": "^1.1.0"
+},
+
     "devDependencies": {
         "browser-sync": "^3.0.2",
         "del": "4.1.1",
