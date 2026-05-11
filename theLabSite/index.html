@@ -121,12 +121,10 @@
       overflow: hidden;
       padding: 0 5%;
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 75% 50%, rgba(244,96,12,0.12) 0%, transparent 70%),
-        linear-gradient(135deg, #0A0A0A 0%, #111111 100%);
-    }
+    .hero-video-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
+    .hero-kenburns{width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.22;}33%{transform:scale(1.07) translate(-1.5%,0.5%);}66%{transform:scale(1.12) translate(1%,-1%);}100%{transform:scale(1.00) translate(0%,0%);}}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,#0a0a0a 0%,rgba(10,10,10,.55) 50%,#0a0a0a 100%),linear-gradient(to bottom,#0a0a0a 0%,transparent 20%,transparent 80%,#0a0a0a 100%);}
+    @media(prefers-reduced-motion:reduce){.hero-kenburns{animation:none;}}
     /* animated court lines */
     .court-lines {
       position: absolute; right: -5%; top: 0; bottom: 0; width: 55%;
@@ -373,7 +371,7 @@
     }
     .about-img-box {
       width: 100%;
-      aspect-ratio: 4/5;
+      aspect-ratio: 4/3;
       background: var(--dark2);
       border-radius: 4px;
       overflow: hidden;
@@ -919,6 +917,23 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    .cinematic-strip{position:relative;width:100%;height:clamp(200px,30vw,500px);overflow:hidden;}
+    .cinematic-strip img{width:100%;height:100%;object-fit:cover;display:block;}
+    .cinematic-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.45) 0%,rgba(10,10,10,.1) 40%,rgba(10,10,10,.1) 60%,rgba(10,10,10,.6) 100%);}
+    .cinematic-label{position:absolute;bottom:1.8rem;left:5%;font-family:var(--font-cond);font-size:clamp(.7rem,1.2vw,.9rem);font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,235,.5);}
+    .session-photo{border-radius:3px;overflow:hidden;margin-bottom:1.5rem;aspect-ratio:16/7;}
+    .session-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;max-width:1200px;}
+    .gallery-grid div{overflow:hidden;background:#111;}
+    .gallery-vid-cell video { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s cubic-bezier(.16,1,.3,1); }
+    .gallery-vid-cell:hover video { transform:scale(1.03); }
+    .gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .5s ease;filter:grayscale(20%);}
+    .gallery-grid div:hover img{transform:scale(1.05);filter:grayscale(0%);}
+    .g-wide{grid-column:span 2;aspect-ratio:16/9;}
+    .g-tall{grid-column:span 1;aspect-ratio:3/4;}
+    @media(max-width:768px){.gallery-grid{grid-template-columns:1fr 1fr;gap:3px;}.g-wide{grid-column:span 2;aspect-ratio:4/3;}.g-tall{grid-column:span 1;aspect-ratio:1/1;}}
+    @media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}.g-wide,.g-tall{grid-column:span 1;aspect-ratio:16/9;}}
   </style>
 </head>
 <body>
@@ -945,13 +960,20 @@
   <a href="#sessions" onclick="closeMobile()">Sessions</a>
   <a href="#aau" onclick="closeMobile()">AAU / Travel Team</a>
   <a href="#threeonthree" onclick="closeMobile()">3-on-3</a>
+  <a href="#gallery" onclick="closeMobile()">Gallery</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
   <a href="#register" onclick="closeMobile()" style="color:var(--orange)">Register Now →</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
-  <div class="hero-bg"></div>
+  <div class="hero-video-bg">
+    <video autoplay muted loop playsinline class="hero-kenburns" poster="https://static.wixstatic.com/media/11062b_70fec86f07db485ca1b232ba65682e20f000.jpg/v1/fill/w_1728,h_580,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/11062b_70fec86f07db485ca1b232ba65682e20f000.jpg" aria-hidden="true">
+      <source src="https://video.wixstatic.com/video/11062b_70fec86f07db485ca1b232ba65682e20/720p/mp4/file.mp4" type="video/mp4" />
+      <img src="https://static.wixstatic.com/media/11062b_70fec86f07db485ca1b232ba65682e20f000.jpg/v1/fill/w_1728,h_580,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/11062b_70fec86f07db485ca1b232ba65682e20f000.jpg" alt="" />
+    </video>
+    <div class="hero-overlay"></div>
+  </div>
   <div class="court-lines"></div>
   <div class="hero-number">23</div>
 
@@ -1096,15 +1118,7 @@
   <div class="about-grid">
     <div class="about-visual reveal">
       <div class="about-img-box">
-        <div class="about-img-placeholder">
-          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="40" cy="40" r="36" stroke="white" stroke-width="2"/>
-            <path d="M40 4 C40 4 22 22 22 40 C22 58 40 76 40 76" stroke="white" stroke-width="2"/>
-            <path d="M40 4 C40 4 58 22 58 40 C58 58 40 76 40 76" stroke="white" stroke-width="2"/>
-            <path d="M4 40 H76" stroke="white" stroke-width="2"/>
-          </svg>
-          <span>Coach JP · Photo Here</span>
-        </div>
+        <img src="https://static.wixstatic.com/media/2cb6b1_7dcdabd77c2a43ee95b89520916ca0ec~mv2_d_1264_1264_s_2.jpg/v1/crop/x_0,y_208,w_1264,h_580/fill/w_1264,h_576,al_c,q_85,enc_avif,quality_auto/2cb6b1_7dcdabd77c2a43ee95b89520916ca0ec~mv2_d_1264_1264_s_2.jpg" alt="Training session at The LAB Basketball" width="1264" height="576" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left center;display:block;" />
       </div>
       <div class="about-badge">
         <strong>10+</strong>
@@ -1123,8 +1137,7 @@
       <p>
         Seeing a gap in Milton's training landscape — no private or small-group facility existed — JP opened <strong>THE LAB Basketball</strong> to give athletes the personalized reps and attention they deserve.
       </p>
-      <div class="credentials">
-        <div class="cred-item">NCCP Certified (National Coaching Certification Program)</div>
+      
         <div class="cred-item">Long Term Athlete Development (LTAD) Qualified</div>
         <div class="cred-item">Former Professional Player — International Career</div>
         <div class="cred-item">Multiple GTA &amp; AAU Championship Titles</div>
@@ -1169,6 +1182,7 @@
     </div>
     <div class="session-panels">
       <div class="session-panel active">
+        <div class="session-photo"><img src="https://static.wixstatic.com/media/2cb6b1_0bd62aa6d67c4d35918101d00de95497~mv2.jpeg/v1/crop/x_0,y_7,w_1600,h_997/fill/w_900,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202020-12-30%20at%204_36_52%20PM%20.jpeg" alt="Ball handling drills at The LAB" width="900" height="400" loading="lazy" /></div>
         <h3>Ball Handling</h3>
         <p>Master the most fundamental weapon in basketball. Athletes work through a series of 1-ball and 2-ball handling drills designed to build touch, confidence under pressure, and the ability to read a defence.</p>
         <div class="session-features">
@@ -1182,6 +1196,7 @@
         <span class="age-pill">Ages 8 and Up</span>
       </div>
       <div class="session-panel">
+        <div class="session-photo"><img src="https://static.wixstatic.com/media/2cb6b1_732414644ae842bc85595e3ab2a4ba83~mv2.jpeg/v1/crop/x_306,y_78,w_988,h_609/fill/w_916,h_564,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202020-12-30%20at%204_36_51%20PM_.jpeg" alt="Shooting clinic at The LAB" width="900" height="400" loading="lazy" /></div>
         <h3>Shooting Clinic</h3>
         <p>Efficient catch-and-release mechanics, proper shooting form from various spots on the floor, and advanced methods to create space off the dribble into a quality shot.</p>
         <div class="session-features">
@@ -1270,6 +1285,7 @@
       <a href="#contact" class="btn-ghost">Get on the Roster →</a>
     </div>
   </div>
+  <div class="reveal" style="margin-top:3rem;border-radius:4px;overflow:hidden;"><img src="https://static.wixstatic.com/media/2cb6b1_ab4bdbad76b94f80b05dfd9878c7fb94~mv2.jpg/v1/fill/w_1039,h_576,al_c,q_85,enc_avif,quality_auto/Picture1.jpg" alt="The LAB Basketball AAU travel team" width="1039" height="576" loading="lazy" style="width:100%;height:auto;display:block;" /></div>
 </section>
 
 <!-- 3-ON-3 -->
@@ -1289,6 +1305,52 @@
         <strong>3v3</strong>
         <span>Play Ball</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" style="background:var(--dark);padding:7rem 5%;">
+  <div class="reveal" style="margin-bottom:3.5rem;"><span class="section-tag">Inside The Lab</span><h2>See The Work</h2><p class="section-intro">Real athletes. Real reps. This is what training at THE LAB looks like.</p></div>
+    <div class="gallery-grid reveal">
+    <div class="g-wide"><img src="https://static.wixstatic.com/media/2cb6b1_0bd62aa6d67c4d35918101d00de95497~mv2.jpeg/v1/crop/x_0,y_7,w_1600,h_997/fill/w_900,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202020-12-30%20at%204_36_52%20PM%20.jpeg" alt="Group training session at The LAB Milton" width="900" height="560" loading="lazy" /></div>
+    <div class="g-tall gallery-vid-cell">
+      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_913b84b501034496b75fc7bf248327a3f000.jpg/v1/fill/w_480,h_847,al_c,q_80,enc_avif,quality_auto/2cb6b1_913b84b501034496b75fc7bf248327a3f000.jpg" aria-label="Athlete skipping rope training at The LAB Basketball">
+        <source src="https://video.wixstatic.com/video/2cb6b1_913b84b501034496b75fc7bf248327a3/720p/mp4/file.mp4" type="video/mp4" />
+        <img src="https://static.wixstatic.com/media/2cb6b1_913b84b501034496b75fc7bf248327a3f000.jpg/v1/fill/w_480,h_847,al_c,q_80,enc_avif,quality_auto/2cb6b1_913b84b501034496b75fc7bf248327a3f000.jpg" alt="Athlete skipping rope training at The LAB Basketball" loading="lazy" />
+      </video>
+    </div>
+    <div class="g-tall gallery-vid-cell">
+      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_efc2c89775bf469886441a8fc3b2dedff000.jpg/v1/fill/w_480,h_629,al_c,q_80,enc_avif,quality_auto/2cb6b1_efc2c89775bf469886441a8fc3b2dedff000.jpg" aria-label="Basketball skills training at The LAB Milton">
+        <source src="https://video.wixstatic.com/video/2cb6b1_efc2c89775bf469886441a8fc3b2dedf/480p/mp4/file.mp4" type="video/mp4" />
+        <img src="https://static.wixstatic.com/media/2cb6b1_efc2c89775bf469886441a8fc3b2dedff000.jpg/v1/fill/w_480,h_629,al_c,q_80,enc_avif,quality_auto/2cb6b1_efc2c89775bf469886441a8fc3b2dedff000.jpg" alt="Basketball skills training at The LAB Milton" loading="lazy" />
+      </video>
+    </div>
+    <div class="g-wide"><img src="https://static.wixstatic.com/media/2cb6b1_732414644ae842bc85595e3ab2a4ba83~mv2.jpeg/v1/crop/x_306,y_78,w_988,h_609/fill/w_916,h_564,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202020-12-30%20at%204_36_51%20PM_.jpeg" alt="Youth basketball training session Milton" width="916" height="564" loading="lazy" /></div>
+    <div class="g-tall gallery-vid-cell">
+      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_faa180c66de94124b932c528211d9498f000.jpg/v1/fill/w_480,h_654,al_c,q_80,enc_avif,quality_auto/2cb6b1_faa180c66de94124b932c528211d9498f000.jpg" aria-label="Player development drill at The LAB">
+        <source src="https://video.wixstatic.com/video/2cb6b1_faa180c66de94124b932c528211d9498/480p/mp4/file.mp4" type="video/mp4" />
+        <img src="https://static.wixstatic.com/media/2cb6b1_faa180c66de94124b932c528211d9498f000.jpg/v1/fill/w_480,h_654,al_c,q_80,enc_avif,quality_auto/2cb6b1_faa180c66de94124b932c528211d9498f000.jpg" alt="Player development drill at The LAB" loading="lazy" />
+      </video>
+    </div>
+    <div class="g-tall gallery-vid-cell">
+      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_e920f4fa45b14a53a30e8caa9ab1839ff000.jpg/v1/fill/w_480,h_647,al_c,q_80,enc_avif,quality_auto/2cb6b1_e920f4fa45b14a53a30e8caa9ab1839ff000.jpg" aria-label="Basketball footwork training at The LAB">
+        <source src="https://video.wixstatic.com/video/2cb6b1_e920f4fa45b14a53a30e8caa9ab1839f/480p/mp4/file.mp4" type="video/mp4" />
+        <img src="https://static.wixstatic.com/media/2cb6b1_e920f4fa45b14a53a30e8caa9ab1839ff000.jpg/v1/fill/w_480,h_647,al_c,q_80,enc_avif,quality_auto/2cb6b1_e920f4fa45b14a53a30e8caa9ab1839ff000.jpg" alt="Basketball footwork training at The LAB" loading="lazy" />
+      </video>
+    </div>
+    <div class="g-wide"><img src="https://static.wixstatic.com/media/2cb6b1_c99dafacb3814646af75f0fcb5197c2b~mv2.jpeg/v1/crop/x_0,y_0,w_1125,h_692/fill/w_918,h_564,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202020-12-30%20at%204_36_52%20PM_.jpeg" alt="Skills training at The LAB Milton Ontario" width="918" height="564" loading="lazy" /></div>
+    <div class="g-tall gallery-vid-cell">
+      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_da682934149d46ef89edd2b774a59b03f000.jpg/v1/fill/w_480,h_569,al_c,q_80,enc_avif,quality_auto/2cb6b1_da682934149d46ef89edd2b774a59b03f000.jpg" aria-label="Shooting mechanics at The LAB Basketball">
+        <source src="https://video.wixstatic.com/video/2cb6b1_da682934149d46ef89edd2b774a59b03/480p/mp4/file.mp4" type="video/mp4" />
+        <img src="https://static.wixstatic.com/media/2cb6b1_da682934149d46ef89edd2b774a59b03f000.jpg/v1/fill/w_480,h_569,al_c,q_80,enc_avif,quality_auto/2cb6b1_da682934149d46ef89edd2b774a59b03f000.jpg" alt="Shooting mechanics at The LAB Basketball" loading="lazy" />
+      </video>
+    </div>
+    <div class="g-tall gallery-vid-cell">
+      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_d8a5d738d3a642bca54a35665e840e7cf000.jpg/v1/fill/w_480,h_747,al_c,q_80,enc_avif,quality_auto/2cb6b1_d8a5d738d3a642bca54a35665e840e7cf000.jpg" aria-label="Dribbling drills at The LAB Basketball Milton">
+        <source src="https://video.wixstatic.com/video/2cb6b1_d8a5d738d3a642bca54a35665e840e7c/480p/mp4/file.mp4" type="video/mp4" />
+        <img src="https://static.wixstatic.com/media/2cb6b1_d8a5d738d3a642bca54a35665e840e7cf000.jpg/v1/fill/w_480,h_747,al_c,q_80,enc_avif,quality_auto/2cb6b1_d8a5d738d3a642bca54a35665e840e7cf000.jpg" alt="Dribbling drills at The LAB Basketball Milton" loading="lazy" />
+      </video>
     </div>
   </div>
 </section>
