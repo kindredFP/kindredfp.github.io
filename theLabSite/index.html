@@ -5,11 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The LAB Basketball — Elite Skills Training | Milton, ON</title>
   <meta name="description" content="Elite Basketball Skills Training & Player Development in Milton, Ontario. Private, semi-private, and group sessions for ages 8 and up." />
+
+  <!-- Open Graph (social share preview) -->
+  <meta property="og:title" content="The LAB Basketball — Elite Skills Training | Milton, ON" />
+  <meta property="og:description" content="Milton's first elite basketball skills & player development facility. Ages 8 and up. Private, semi-private, group, AAU & 3-on-3 programs." />
+  <meta property="og:image" content="images/hero-bg.jpg" />
+  <meta property="og:type" content="website" />
+
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="images/hero-bg.jpg" />
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@500;700;900&display=swap" rel="stylesheet" />
+
+  <!-- Local Business structured data (Google shows address/phone in search results) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "The LAB Basketball",
+    "description": "Elite Basketball Skills Training & Player Development in Milton, Ontario.",
+    "telephone": "416-433-0408",
+    "email": "info@thelabbasketball.com",
+    "url": "https://kindredfp.github.io/theLabSite/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "821 Main Street E",
+      "addressLocality": "Milton",
+      "addressRegion": "ON",
+      "postalCode": "L9T 3Z3",
+      "addressCountry": "CA"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 43.5183, "longitude": -79.8774 },
+    "sameAs": [
+      "https://www.instagram.com/the_lab_basketball/",
+      "https://www.facebook.com/The-LAB-Basketball-Training-Development-1642338786062293/",
+      "https://twitter.com/The_LAB_Milton"
+    ]
+  }
+  </script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --orange:  #F4600C;
       --orange2: #FF8C00;
@@ -19,921 +57,267 @@
       --mid:     #252525;
       --muted:   #888888;
       --white:   #F5F0EB;
-      --cream:   #E8DED0;
       --font-display: 'Bebas Neue', sans-serif;
       --font-cond:    'Barlow Condensed', sans-serif;
       --font-body:    'Barlow', sans-serif;
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: var(--font-body);
-      overflow-x: hidden;
-    }
-
-    /* ─── SCROLLBAR ─── */
+    body { background: var(--black); color: var(--white); font-family: var(--font-body); overflow-x: hidden; }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--black); }
     ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
 
-    /* ─── NAV ─── */
+    /* NAV */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 5%;
-      height: 70px;
+      padding: 0 5%; height: 70px;
       background: rgba(10,10,10,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(244,96,12,0.15);
-      transition: border-color 0.3s;
     }
-    .nav-logo {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
-      letter-spacing: 0.06em;
-      color: var(--white);
-      text-decoration: none;
-    }
+    .nav-logo { font-family: var(--font-display); font-size: 1.6rem; letter-spacing: 0.06em; color: var(--white); text-decoration: none; }
     .nav-logo span { color: var(--orange); }
-    .nav-links {
-      display: flex; gap: 2rem; list-style: none;
-    }
-    .nav-links a {
-      font-family: var(--font-cond);
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-family: var(--font-cond); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--orange); }
-    .nav-cta {
-      background: var(--orange);
-      color: var(--black) !important;
-      padding: 0.5rem 1.2rem;
-      border-radius: 3px;
-      font-weight: 900 !important;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--orange2) !important; color: var(--black) !important; }
-
-    /* hamburger */
+    .nav-cta { background: var(--orange); color: var(--black) !important; padding: 0.5rem 1.2rem; border-radius: 3px; font-weight: 900 !important; }
+    .nav-cta:hover { background: var(--orange2) !important; }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); transition: all 0.3s; }
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu {
-      display: none;
-      position: fixed; top: 70px; left: 0; right: 0; z-index: 99;
-      background: rgba(10,10,10,0.98);
-      padding: 2rem 5%;
-      flex-direction: column; gap: 1.5rem;
-      border-bottom: 1px solid rgba(244,96,12,0.2);
-    }
+    .mobile-menu { display: none; position: fixed; top: 70px; left: 0; right: 0; z-index: 99; background: rgba(10,10,10,0.98); padding: 2rem 5%; flex-direction: column; gap: 1.5rem; border-bottom: 1px solid rgba(244,96,12,0.2); }
     .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-family: var(--font-cond);
-      font-weight: 700;
-      font-size: 1.2rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--white);
-      text-decoration: none;
-    }
+    .mobile-menu a { font-family: var(--font-cond); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); text-decoration: none; }
     .mobile-menu a:hover { color: var(--orange); }
+    @media (max-width: 768px) { .nav-links { display: none; } .hamburger { display: flex; } }
 
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
-    }
+    /* HERO */
+    #hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding: 0 5%; }
+    .hero-video-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 
-    /* ─── HERO ─── */
-    #hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex; align-items: center;
-      overflow: hidden;
-      padding: 0 5%;
+    /* FIX: was malformed — keyframes were concatenated into the class rule */
+    .hero-kenburns {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 30%;
+      opacity: 0.22;
+      animation: kenburns 24s ease-in-out infinite alternate;
     }
-    .hero-video-bg{position:absolute;inset:0;z-index:0;overflow:hidden;}
-    .hero-kenburns{width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.22;}33%{transform:scale(1.07) translate(-1.5%,0.5%);}66%{transform:scale(1.12) translate(1%,-1%);}100%{transform:scale(1.00) translate(0%,0%);}}
-    .hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,#0a0a0a 0%,rgba(10,10,10,.55) 50%,#0a0a0a 100%),linear-gradient(to bottom,#0a0a0a 0%,transparent 20%,transparent 80%,#0a0a0a 100%);}
-    @media(prefers-reduced-motion:reduce){.hero-kenburns{animation:none;}}
-    /* animated court lines */
-    .court-lines {
-      position: absolute; right: -5%; top: 0; bottom: 0; width: 55%;
-      opacity: 0.06;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(244,96,12,1) 38px, rgba(244,96,12,1) 40px),
-        repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(244,96,12,1) 38px, rgba(244,96,12,1) 40px);
-      animation: courtPulse 8s ease-in-out infinite;
+    @keyframes kenburns {
+      0%   { transform: scale(1.00) translate(0%,    0%);   }
+      33%  { transform: scale(1.07) translate(-1.5%, 0.5%); }
+      66%  { transform: scale(1.12) translate(1%,   -1%);   }
+      100% { transform: scale(1.00) translate(0%,    0%);   }
     }
-    @keyframes courtPulse {
-      0%, 100% { opacity: 0.04; }
-      50% { opacity: 0.09; }
-    }
+    @media (prefers-reduced-motion: reduce) { .hero-kenburns { animation: none; } }
 
-    /* big number accent */
-    .hero-number {
-      position: absolute; right: 5%; bottom: -6%;
-      font-family: var(--font-display);
-      font-size: clamp(180px, 28vw, 380px);
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(244,96,12,0.12);
-      line-height: 1;
-      user-select: none;
-      animation: fadeUp 1.2s ease forwards;
-    }
-
-    .hero-content {
-      position: relative; z-index: 2;
-      max-width: 680px;
-      animation: fadeUp 0.9s ease forwards;
-    }
-    .hero-tag {
-      display: inline-block;
-      font-family: var(--font-cond);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--orange);
-      border: 1px solid rgba(244,96,12,0.4);
-      padding: 0.35rem 0.9rem;
-      border-radius: 2px;
-      margin-bottom: 1.5rem;
-    }
-    h1 {
-      font-family: var(--font-display);
-      font-size: clamp(3.5rem, 9vw, 8rem);
-      line-height: 0.93;
-      letter-spacing: 0.02em;
-      color: var(--white);
-      margin-bottom: 1.5rem;
-    }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to right, #0a0a0a 0%, rgba(10,10,10,.55) 50%, #0a0a0a 100%), linear-gradient(to bottom, #0a0a0a 0%, transparent 20%, transparent 80%, #0a0a0a 100%); }
+    .court-lines { position: absolute; right: -5%; top: 0; bottom: 0; width: 55%; opacity: 0.06; background-image: repeating-linear-gradient(0deg,transparent,transparent 38px,rgba(244,96,12,1) 38px,rgba(244,96,12,1) 40px), repeating-linear-gradient(90deg,transparent,transparent 38px,rgba(244,96,12,1) 38px,rgba(244,96,12,1) 40px); animation: courtPulse 8s ease-in-out infinite; }
+    @keyframes courtPulse { 0%,100%{opacity:.04} 50%{opacity:.09} }
+    .hero-number { position: absolute; right: 5%; bottom: -6%; font-family: var(--font-display); font-size: clamp(180px,28vw,380px); color: transparent; -webkit-text-stroke: 1px rgba(244,96,12,0.12); line-height: 1; user-select: none; animation: fadeUp 1.2s ease forwards; }
+    .hero-content { position: relative; z-index: 2; max-width: 680px; animation: fadeUp 0.9s ease forwards; }
+    .hero-tag { display: inline-block; font-family: var(--font-cond); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); border: 1px solid rgba(244,96,12,0.4); padding: 0.35rem 0.9rem; border-radius: 2px; margin-bottom: 1.5rem; }
+    h1 { font-family: var(--font-display); font-size: clamp(3.5rem,9vw,8rem); line-height: 0.93; letter-spacing: 0.02em; color: var(--white); margin-bottom: 1.5rem; }
     h1 .accent { color: var(--orange); display: block; }
-    .hero-sub {
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: rgba(245,240,235,0.65);
-      max-width: 500px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
-    }
+    .hero-sub { font-size: 1.1rem; color: rgba(245,240,235,0.65); max-width: 500px; line-height: 1.7; margin-bottom: 2.5rem; }
     .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-block;
-      background: var(--orange);
-      color: var(--black);
-      font-family: var(--font-cond);
-      font-size: 0.95rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.9rem 2rem;
-      border-radius: 3px;
-      transition: background 0.2s, transform 0.15s;
-    }
+    .btn-primary { display: inline-block; background: var(--orange); color: var(--black); font-family: var(--font-cond); font-size: 0.95rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 2rem; border-radius: 3px; transition: background 0.2s, transform 0.15s; }
     .btn-primary:hover { background: var(--orange2); transform: translateY(-2px); }
-    .btn-ghost {
-      display: inline-block;
-      border: 1px solid rgba(245,240,235,0.25);
-      color: var(--white);
-      font-family: var(--font-cond);
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 0.9rem 2rem;
-      border-radius: 3px;
-      transition: border-color 0.2s, color 0.2s;
-    }
+    .btn-ghost { display: inline-block; border: 1px solid rgba(245,240,235,0.25); color: var(--white); font-family: var(--font-cond); font-size: 0.95rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; padding: 0.9rem 2rem; border-radius: 3px; transition: border-color 0.2s, color 0.2s; }
     .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+    .hero-stats { position: absolute; bottom: 3rem; left: 5%; display: flex; gap: 3rem; z-index: 2; animation: fadeUp 1.1s ease 0.3s both; }
+    .stat-num { font-family: var(--font-display); font-size: 2.5rem; color: var(--orange); line-height: 1; }
+    .stat-label { font-family: var(--font-cond); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 0.2rem; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
 
-    .hero-stats {
-      position: absolute; bottom: 3rem; left: 5%;
-      display: flex; gap: 3rem; z-index: 2;
-      animation: fadeUp 1.1s ease 0.3s both;
-    }
-    .stat-item { text-align: left; }
-    .stat-num {
-      font-family: var(--font-display);
-      font-size: 2.5rem;
-      color: var(--orange);
-      line-height: 1;
-    }
-    .stat-label {
-      font-family: var(--font-cond);
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 0.2rem;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ─── SECTION BASE ─── */
+    /* SECTION BASE */
     section { padding: 7rem 5%; }
-    .section-tag {
-      font-family: var(--font-cond);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-    h2 {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 4.5rem);
-      line-height: 1;
-      letter-spacing: 0.02em;
-      margin-bottom: 1rem;
-    }
-    .section-intro {
-      font-size: 1rem;
-      color: rgba(245,240,235,0.6);
-      max-width: 520px;
-      line-height: 1.7;
-    }
+    .section-tag { font-family: var(--font-cond); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; display: block; }
+    h2 { font-family: var(--font-display); font-size: clamp(2.5rem,5vw,4.5rem); line-height: 1; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .section-intro { font-size: 1rem; color: rgba(245,240,235,0.6); max-width: 520px; line-height: 1.7; }
 
-    /* ─── TICKER ─── */
-    .ticker-wrap {
-      background: var(--orange);
-      padding: 0.75rem 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .ticker-track {
-      display: inline-block;
-      animation: ticker 22s linear infinite;
-    }
-    .ticker-track span {
-      font-family: var(--font-cond);
-      font-size: 0.85rem;
-      font-weight: 900;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--black);
-      margin-right: 3rem;
-    }
+    /* TICKER */
+    .ticker-wrap { background: var(--orange); padding: 0.75rem 0; overflow: hidden; white-space: nowrap; }
+    .ticker-track { display: inline-block; animation: ticker 22s linear infinite; }
+    .ticker-track span { font-family: var(--font-cond); font-size: 0.85rem; font-weight: 900; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); margin-right: 3rem; }
     .ticker-track span::before { content: "◆ "; }
-    @keyframes ticker {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
-    /* ─── PROGRAMS ─── */
+    /* PROGRAMS */
     #programs { background: var(--dark); }
-    .programs-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 4rem;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .programs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5px;
-    }
-    .program-card {
-      background: var(--dark2);
-      padding: 2.5rem;
-      border-bottom: 3px solid transparent;
-      transition: border-color 0.25s, background 0.25s;
-      cursor: default;
-    }
-    .program-card:hover {
-      border-bottom-color: var(--orange);
-      background: var(--mid);
-    }
-    .program-icon {
-      width: 48px; height: 48px;
-      margin-bottom: 1.5rem;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .programs-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem; }
+    .programs-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1.5px; }
+    .program-card { background: var(--dark2); padding: 2.5rem; border-bottom: 3px solid transparent; transition: border-color 0.25s, background 0.25s; }
+    .program-card:hover { border-bottom-color: var(--orange); background: var(--mid); }
+    .program-icon { width: 48px; height: 48px; margin-bottom: 1.5rem; }
     .program-icon svg { width: 100%; height: 100%; }
-    .program-card h3 {
-      font-family: var(--font-cond);
-      font-size: 1.5rem;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-    .program-card p {
-      font-size: 0.92rem;
-      color: rgba(245,240,235,0.55);
-      line-height: 1.7;
-    }
-    .program-card .tag-row {
-      margin-top: 1.5rem;
-      display: flex; gap: 0.5rem; flex-wrap: wrap;
-    }
-    .mini-tag {
-      font-family: var(--font-cond);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border: 1px solid rgba(244,96,12,0.35);
-      color: var(--orange);
-      border-radius: 2px;
-    }
+    .program-card h3 { font-family: var(--font-cond); font-size: 1.5rem; font-weight: 900; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .program-card p { font-size: 0.92rem; color: rgba(245,240,235,0.55); line-height: 1.7; }
+    .program-card .tag-row { margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .mini-tag { font-family: var(--font-cond); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.6rem; border: 1px solid rgba(244,96,12,0.35); color: var(--orange); border-radius: 2px; }
 
-    /* ─── ABOUT ─── */
+    /* ABOUT */
     #about { background: var(--black); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    .about-visual {
-      position: relative;
-    }
-    .about-img-box {
-      width: 100%;
-      aspect-ratio: 4/3;
-      background: var(--dark2);
-      border-radius: 4px;
-      overflow: hidden;
-      position: relative;
-    }
-    .about-img-box img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    /* placeholder when no image */
-    .about-img-placeholder {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, var(--dark2) 0%, var(--mid) 100%);
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 1rem;
-    }
-    .about-img-placeholder svg { width: 80px; opacity: 0.15; }
-    .about-img-placeholder span {
-      font-family: var(--font-cond);
-      font-size: 0.8rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .about-badge {
-      position: absolute;
-      bottom: -1.5rem; right: -1.5rem;
-      background: var(--orange);
-      color: var(--black);
-      width: 120px; height: 120px;
-      border-radius: 50%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      text-align: center;
-    }
-    .about-badge strong {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      line-height: 1;
-    }
-    .about-badge span {
-      font-family: var(--font-cond);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-visual { position: relative; }
+    .about-img-box { width: 100%; aspect-ratio: 4/3; background: var(--dark2); border-radius: 4px; overflow: hidden; }
+    .about-img-box img { width: 100%; height: 100%; object-fit: cover; object-position: left center; display: block; }
+    .about-badge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--orange); color: var(--black); width: 120px; height: 120px; border-radius: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+    .about-badge strong { font-family: var(--font-display); font-size: 2rem; line-height: 1; }
+    .about-badge span { font-family: var(--font-cond); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
     .about-text h2 { margin-bottom: 1.5rem; }
-    .about-text p {
-      font-size: 0.97rem;
-      color: rgba(245,240,235,0.62);
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
+    .about-text p { font-size: 0.97rem; color: rgba(245,240,235,0.62); line-height: 1.8; margin-bottom: 1.2rem; }
     .about-text p strong { color: var(--white); }
-    .credentials {
-      margin-top: 2rem;
-      display: flex; flex-direction: column; gap: 0.75rem;
-    }
-    .cred-item {
-      display: flex; align-items: center; gap: 0.75rem;
-      font-family: var(--font-cond);
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--white);
-    }
-    .cred-item::before {
-      content: '';
-      display: block;
-      width: 8px; height: 8px;
-      background: var(--orange);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+    .credentials { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .cred-item { display: flex; align-items: center; gap: 0.75rem; font-family: var(--font-cond); font-size: 0.95rem; font-weight: 600; letter-spacing: 0.04em; color: var(--white); }
+    .cred-item::before { content:''; display:block; width:8px; height:8px; background:var(--orange); border-radius:50%; flex-shrink:0; }
+    @media (max-width:860px) { .about-grid{grid-template-columns:1fr;gap:3rem} .about-badge{width:90px;height:90px;right:1rem;bottom:1rem} .about-badge strong{font-size:1.5rem} }
 
-    @media (max-width: 860px) {
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .about-badge { width: 90px; height: 90px; right: 1rem; bottom: 1rem; }
-      .about-badge strong { font-size: 1.5rem; }
-    }
+    /* PHILOSOPHY STRIP */
+    .philosophy-strip { background: var(--orange); padding: 5rem 5%; text-align: center; }
+    .philosophy-strip blockquote { font-family: var(--font-display); font-size: clamp(2rem,5vw,4rem); color: var(--black); letter-spacing: 0.02em; line-height: 1.1; max-width: 800px; margin: 0 auto 1.5rem; }
+    .philosophy-strip cite { font-family: var(--font-cond); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(0,0,0,0.55); font-style: normal; }
 
-    /* ─── PHILOSOPHY STRIP ─── */
-    .philosophy-strip {
-      background: var(--orange);
-      padding: 5rem 5%;
-      text-align: center;
-    }
-    .philosophy-strip blockquote {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 4rem);
-      color: var(--black);
-      letter-spacing: 0.02em;
-      line-height: 1.1;
-      max-width: 800px;
-      margin: 0 auto 1.5rem;
-    }
-    .philosophy-strip cite {
-      font-family: var(--font-cond);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.55);
-      font-style: normal;
-    }
-
-    /* ─── SESSIONS ─── */
+    /* SESSIONS */
     #sessions { background: var(--dark); }
-    .sessions-layout {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 5rem;
-      margin-top: 4rem;
-    }
-    .sessions-nav {
-      display: flex; flex-direction: column; gap: 0;
-      border-left: 1px solid var(--mid);
-    }
-    .session-tab {
-      padding: 1.2rem 1.5rem;
-      cursor: pointer;
-      border-left: 3px solid transparent;
-      margin-left: -1px;
-      transition: all 0.2s;
-    }
-    .session-tab.active {
-      border-left-color: var(--orange);
-      background: rgba(244,96,12,0.06);
-    }
-    .session-tab h4 {
-      font-family: var(--font-cond);
-      font-size: 1rem;
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--muted);
-      transition: color 0.2s;
-    }
-    .session-tab.active h4,
-    .session-tab:hover h4 { color: var(--white); }
-    .session-tab p {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.2rem;
-    }
-    .session-panels > div {
-      display: none;
-      animation: fadeUp 0.4s ease;
-    }
+    .sessions-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; margin-top: 4rem; }
+    .sessions-nav { display: flex; flex-direction: column; gap: 0; border-left: 1px solid var(--mid); }
+    .session-tab { padding: 1.2rem 1.5rem; cursor: pointer; border-left: 3px solid transparent; margin-left: -1px; transition: all 0.2s; }
+    .session-tab.active { border-left-color: var(--orange); background: rgba(244,96,12,0.06); }
+    .session-tab h4 { font-family: var(--font-cond); font-size: 1rem; font-weight: 900; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    .session-tab.active h4, .session-tab:hover h4 { color: var(--white); }
+    .session-tab p { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+    .session-panels > div { display: none; animation: fadeUp 0.4s ease; }
     .session-panels > div.active { display: block; }
-    .session-panel h3 {
-      font-family: var(--font-display);
-      font-size: 2.8rem;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.02em;
-    }
-    .session-panel p {
-      font-size: 0.97rem;
-      color: rgba(245,240,235,0.62);
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-    }
-    .session-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.6rem 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .feat-item {
-      font-family: var(--font-cond);
-      font-size: 0.88rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--white);
-      display: flex; align-items: center; gap: 0.5rem;
-    }
-    .feat-item::before {
-      content: '→';
-      color: var(--orange);
-      font-weight: 900;
-    }
-    .age-pill {
-      display: inline-block;
-      margin-top: 2rem;
-      background: rgba(244,96,12,0.12);
-      border: 1px solid rgba(244,96,12,0.3);
-      color: var(--orange);
-      font-family: var(--font-cond);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 0.4rem 1rem;
-      border-radius: 2px;
+    .session-panel h3 { font-family: var(--font-display); font-size: 2.8rem; margin-bottom: 1.5rem; }
+    .session-panel p { font-size: 0.97rem; color: rgba(245,240,235,0.62); line-height: 1.8; margin-bottom: 1.5rem; }
+    .session-features { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem 1.5rem; margin-top: 1.5rem; }
+    .feat-item { font-family: var(--font-cond); font-size: 0.88rem; font-weight: 600; letter-spacing: 0.04em; color: var(--white); display: flex; align-items: center; gap: 0.5rem; }
+    .feat-item::before { content:'→'; color:var(--orange); font-weight:900; }
+    .age-pill { display: inline-block; margin-top: 2rem; background: rgba(244,96,12,0.12); border: 1px solid rgba(244,96,12,0.3); color: var(--orange); font-family: var(--font-cond); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 2px; }
+    .session-photo { border-radius: 3px; overflow: hidden; margin-bottom: 1.5rem; aspect-ratio: 16/7; }
+    .session-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    @media (max-width:768px) {
+      .sessions-layout{grid-template-columns:1fr;gap:2rem}
+      .sessions-nav{flex-direction:row;flex-wrap:wrap;border-left:none;border-top:1px solid var(--mid)}
+      .session-tab{border-left:none;border-top:3px solid transparent;margin-left:0;margin-top:-1px;flex:1;min-width:120px}
+      .session-tab.active{border-top-color:var(--orange);border-left-color:transparent}
+      .session-features{grid-template-columns:1fr}
     }
 
-    @media (max-width: 768px) {
-      .sessions-layout { grid-template-columns: 1fr; gap: 2rem; }
-      .sessions-nav { flex-direction: row; flex-wrap: wrap; border-left: none; border-top: 1px solid var(--mid); }
-      .session-tab { border-left: none; border-top: 3px solid transparent; margin-left: 0; margin-top: -1px; flex: 1; min-width: 120px; }
-      .session-tab.active { border-top-color: var(--orange); border-left-color: transparent; }
-      .session-features { grid-template-columns: 1fr; }
-    }
+    /* AAU */
+    #aau { background: var(--black); }
+    .aau-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .aau-card { background: var(--dark2); border: 1px solid var(--mid); border-radius: 4px; padding: 3rem; }
+    .aau-card h3 { font-family: var(--font-display); font-size: 2rem; letter-spacing: 0.02em; margin-bottom: 1rem; }
+    .aau-card p { font-size: 0.93rem; color: rgba(245,240,235,0.58); line-height: 1.75; margin-bottom: 1.5rem; }
+    .trophy-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .trophy-item { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.92rem; color: rgba(245,240,235,0.7); line-height: 1.5; }
+    @media (max-width:860px) { .aau-grid{grid-template-columns:1fr;gap:2rem} }
 
-    /* ─── AAU ─── */
-    #aau {
-      background: var(--black);
-      position: relative;
-      overflow: hidden;
-    }
-    .aau-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .aau-card {
-      background: var(--dark2);
-      border: 1px solid var(--mid);
-      border-radius: 4px;
-      padding: 3rem;
-    }
-    .aau-card h3 {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      letter-spacing: 0.02em;
-      margin-bottom: 1rem;
-    }
-    .aau-card p {
-      font-size: 0.93rem;
-      color: rgba(245,240,235,0.58);
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
-    }
-    .trophy-list {
-      display: flex; flex-direction: column; gap: 0.75rem;
-      margin-bottom: 2rem;
-    }
-    .trophy-item {
-      display: flex; align-items: flex-start; gap: 0.8rem;
-      font-size: 0.92rem;
-      color: rgba(245,240,235,0.7);
-      line-height: 1.5;
-    }
-    .trophy-item .icon { color: var(--orange); font-size: 1rem; margin-top: 0.1rem; }
-
-    @media (max-width: 860px) {
-      .aau-grid { grid-template-columns: 1fr; gap: 2rem; }
-    }
-
-    /* ─── 3-ON-3 ─── */
-    #threeonthree {
-      background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 100%);
-      border-top: 1px solid var(--mid);
-      border-bottom: 1px solid var(--mid);
-    }
-    .three-inner {
-      display: flex;
-      align-items: center;
-      gap: 5rem;
-      flex-wrap: wrap;
-    }
+    /* 3-ON-3 */
+    #threeonthree { background: linear-gradient(135deg,var(--dark) 0%,var(--dark2) 100%); border-top: 1px solid var(--mid); border-bottom: 1px solid var(--mid); }
+    .three-inner { display: flex; align-items: center; gap: 5rem; flex-wrap: wrap; }
     .three-text { flex: 1; min-width: 280px; }
     .three-text h2 { margin-bottom: 1.5rem; }
-    .three-text p {
-      font-size: 0.97rem;
-      color: rgba(245,240,235,0.6);
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-    .three-visual {
-      flex: 0 0 260px;
-      text-align: center;
-    }
-    .three-badge {
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      border: 3px solid var(--orange);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      margin: 0 auto;
-      position: relative;
-    }
-    .three-badge::before {
-      content: '';
-      position: absolute; inset: 8px;
-      border-radius: 50%;
-      border: 1px dashed rgba(244,96,12,0.3);
-      animation: rotateSlow 20s linear infinite;
-    }
-    @keyframes rotateSlow { to { transform: rotate(360deg); } }
-    .three-badge strong {
-      font-family: var(--font-display);
-      font-size: 5rem;
-      color: var(--orange);
-      line-height: 1;
-    }
-    .three-badge span {
-      font-family: var(--font-cond);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--white);
-    }
+    .three-text p { font-size: 0.97rem; color: rgba(245,240,235,0.6); line-height: 1.8; margin-bottom: 2rem; }
+    .three-visual { flex: 0 0 260px; text-align: center; }
+    .three-badge { width: 200px; height: 200px; border-radius: 50%; border: 3px solid var(--orange); display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto; position: relative; }
+    .three-badge::before { content:''; position:absolute; inset:8px; border-radius:50%; border:1px dashed rgba(244,96,12,.3); animation: rotateSlow 20s linear infinite; }
+    @keyframes rotateSlow { to{transform:rotate(360deg)} }
+    .three-badge strong { font-family: var(--font-display); font-size: 5rem; color: var(--orange); line-height: 1; }
+    .three-badge span { font-family: var(--font-cond); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); }
 
-    /* ─── TESTIMONIALS ─── */
+    /* GALLERY */
+    #gallery { background: var(--dark); padding: 7rem 5%; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 5px; max-width: 1200px; }
+    .gallery-grid div { overflow: hidden; background: #111; }
+    .gallery-grid img { width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .5s ease;filter:grayscale(20%); }
+    .gallery-grid div:hover img { transform:scale(1.05);filter:grayscale(0%); }
+    .gallery-vid-cell video { width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1); }
+    .gallery-vid-cell:hover video { transform:scale(1.03); }
+    .g-wide { grid-column:span 2;aspect-ratio:16/9; }
+    .g-tall { grid-column:span 1;aspect-ratio:3/4; }
+    @media (max-width:768px) { .gallery-grid{grid-template-columns:1fr 1fr;gap:3px} .g-wide{grid-column:span 2;aspect-ratio:4/3} .g-tall{grid-column:span 1;aspect-ratio:1/1} }
+    @media (max-width:480px) { .gallery-grid{grid-template-columns:1fr} .g-wide,.g-tall{grid-column:span 1;aspect-ratio:16/9} }
+
+    /* TESTIMONIALS */
     #testimonials { background: var(--black); }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3.5rem;
-    }
-    .testimonial-card {
-      background: var(--dark2);
-      border-radius: 4px;
-      padding: 2rem;
-      border-top: 3px solid var(--orange);
-      position: relative;
-    }
-    .quote-mark {
-      font-family: var(--font-display);
-      font-size: 5rem;
-      color: rgba(244,96,12,0.15);
-      line-height: 0.6;
-      margin-bottom: 0.5rem;
-    }
-    .testimonial-card p {
-      font-size: 0.95rem;
-      color: rgba(245,240,235,0.7);
-      line-height: 1.75;
-      margin-bottom: 1.5rem;
-    }
-    .testimonial-author {
-      font-family: var(--font-cond);
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--orange);
-    }
-    .testimonial-role {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.15rem;
-    }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+    .testimonial-card { background: var(--dark2); border-radius: 4px; padding: 2rem; border-top: 3px solid var(--orange); }
+    .quote-mark { font-family: var(--font-display); font-size: 5rem; color: rgba(244,96,12,0.15); line-height: 0.6; margin-bottom: 0.5rem; }
+    .testimonial-card p { font-size: 0.95rem; color: rgba(245,240,235,0.7); line-height: 1.75; margin-bottom: 1.5rem; }
+    .testimonial-author { font-family: var(--font-cond); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); }
+    .testimonial-role { font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
 
-    /* ─── CTA ─── */
-    #register {
-      background:
-        radial-gradient(ellipse 80% 70% at 50% 50%, rgba(244,96,12,0.14) 0%, transparent 70%),
-        var(--dark);
-      text-align: center;
-      padding: 8rem 5%;
-    }
-    #register h2 {
-      font-size: clamp(2.5rem, 7vw, 6rem);
-      margin-bottom: 1.5rem;
-    }
-    #register p {
-      font-size: 1.05rem;
-      color: rgba(245,240,235,0.6);
-      max-width: 500px;
-      margin: 0 auto 3rem;
-      line-height: 1.7;
-    }
-    .cta-buttons {
-      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
-    }
-    .btn-big {
-      font-size: 1rem;
-      padding: 1.1rem 2.5rem;
-    }
+    /* FAQ */
+    #faq { background: var(--dark2); }
+    .faq-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; margin-top: 3rem; align-items: start; }
+    .faq-intro p { font-size: 0.97rem; color: rgba(245,240,235,0.6); line-height: 1.8; margin-top: 1rem; }
+    .faq-intro .btn-primary { margin-top: 2rem; display: inline-block; }
+    .faq-list { display: flex; flex-direction: column; }
+    .faq-item { border-bottom: 1px solid var(--mid); }
+    .faq-item:first-child { border-top: 1px solid var(--mid); }
+    .faq-question { width: 100%; background: none; border: none; padding: 1.4rem 0; display: flex; justify-content: space-between; align-items: center; gap: 1rem; cursor: pointer; text-align: left; }
+    .faq-question span { font-family: var(--font-cond); font-size: 1.1rem; font-weight: 700; letter-spacing: 0.04em; color: var(--white); transition: color 0.2s; }
+    .faq-question:hover span { color: var(--orange); }
+    .faq-icon { width: 28px; height: 28px; border: 1px solid rgba(244,96,12,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--orange); font-size: 1.1rem; font-weight: 300; transition: transform 0.3s, background 0.2s; line-height: 1; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: rgba(244,96,12,0.12); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+    .faq-item.open .faq-answer { max-height: 500px; padding-bottom: 1.4rem; }
+    .faq-answer p { font-size: 0.95rem; color: rgba(245,240,235,0.62); line-height: 1.8; }
+    .faq-answer p + p { margin-top: 0.75rem; }
+    .faq-answer a { color: var(--orange); text-decoration: none; }
+    .faq-answer a:hover { text-decoration: underline; }
+    .faq-answer strong { color: var(--white); }
+    @media (max-width:860px) { .faq-layout{grid-template-columns:1fr;gap:2rem} }
 
-    /* ─── CONTACT ─── */
+    /* CTA */
+    #register { background: radial-gradient(ellipse 80% 70% at 50% 50%,rgba(244,96,12,.14) 0%,transparent 70%),var(--dark); text-align: center; padding: 8rem 5%; }
+    #register h2 { font-size: clamp(2.5rem,7vw,6rem); margin-bottom: 1.5rem; }
+    #register p { font-size: 1.05rem; color: rgba(245,240,235,0.6); max-width: 500px; margin: 0 auto 3rem; line-height: 1.7; }
+    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-big { font-size: 1rem; padding: 1.1rem 2.5rem; }
+
+    /* CONTACT */
     #contact { background: var(--dark2); }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      margin-top: 4rem;
-    }
-    .contact-info h3 {
-      font-family: var(--font-cond);
-      font-size: 1.2rem;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 0.5rem;
-    }
-    .contact-info p {
-      font-size: 0.95rem;
-      color: rgba(245,240,235,0.6);
-      line-height: 1.7;
-      margin-bottom: 2rem;
-    }
-    .contact-item {
-      display: flex; align-items: flex-start; gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .contact-icon {
-      width: 40px; height: 40px;
-      background: rgba(244,96,12,0.1);
-      border: 1px solid rgba(244,96,12,0.25);
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      color: var(--orange);
-      font-size: 1rem;
-    }
-    .contact-detail strong {
-      display: block;
-      font-family: var(--font-cond);
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.2rem;
-    }
-    .contact-detail a, .contact-detail span {
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.97rem;
-    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 4rem; }
+    .contact-info h3 { font-family: var(--font-cond); font-size: 1.2rem; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; }
+    .contact-info p { font-size: 0.95rem; color: rgba(245,240,235,0.6); line-height: 1.7; margin-bottom: 2rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+    .contact-icon { width: 40px; height: 40px; background: rgba(244,96,12,0.1); border: 1px solid rgba(244,96,12,0.25); border-radius: 4px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .contact-detail strong { display: block; font-family: var(--font-cond); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem; }
+    .contact-detail a, .contact-detail span { color: var(--white); text-decoration: none; font-size: 0.97rem; }
     .contact-detail a:hover { color: var(--orange); }
-    .social-links {
-      display: flex; gap: 0.75rem; margin-top: 2rem;
-    }
-    .social-link {
-      width: 42px; height: 42px;
-      background: var(--mid);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 4px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 1rem;
-      transition: all 0.2s;
-    }
-    .social-link:hover {
-      background: var(--orange);
-      color: var(--black);
-      border-color: var(--orange);
-    }
+    .social-links { display: flex; gap: 0.75rem; margin-top: 2rem; }
+    .social-link { width: 42px; height: 42px; background: var(--mid); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: var(--muted); text-decoration: none; transition: all 0.2s; }
+    .social-link:hover { background: var(--orange); color: var(--black); border-color: var(--orange); }
     .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-    .form-group label {
-      font-family: var(--font-cond);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      background: var(--mid);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 3px;
-      padding: 0.75rem 1rem;
-      color: var(--white);
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.2s;
-      width: 100%;
-    }
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus { border-color: var(--orange); }
+    .form-group label { font-family: var(--font-cond); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+    .form-group input, .form-group select, .form-group textarea { background: var(--mid); border: 1px solid rgba(255,255,255,0.08); border-radius: 3px; padding: 0.75rem 1rem; color: var(--white); font-family: var(--font-body); font-size: 0.95rem; outline: none; transition: border-color 0.2s; width: 100%; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--orange); }
     .form-group textarea { resize: vertical; min-height: 120px; }
     .form-group select { appearance: none; cursor: pointer; }
-    .form-submit {
-      background: var(--orange);
-      border: none;
-      color: var(--black);
-      font-family: var(--font-cond);
-      font-size: 1rem;
-      font-weight: 900;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 1rem;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
+    .form-submit { background: var(--orange); border: none; color: var(--black); font-family: var(--font-cond); font-size: 1rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; padding: 1rem; border-radius: 3px; cursor: pointer; transition: background 0.2s; }
     .form-submit:hover { background: var(--orange2); }
-    .form-note {
-      font-size: 0.8rem;
-      color: var(--muted);
-      text-align: center;
-      margin-top: 0.5rem;
-    }
+    .form-note { font-size: 0.8rem; color: var(--muted); text-align: center; margin-top: 0.5rem; }
+    @media (max-width:768px) { .contact-grid{grid-template-columns:1fr;gap:3rem} .form-row{grid-template-columns:1fr} }
 
-    @media (max-width: 768px) {
-      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .form-row { grid-template-columns: 1fr; }
-    }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--black);
-      border-top: 1px solid var(--mid);
-      padding: 3rem 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .footer-logo {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      letter-spacing: 0.06em;
-      color: var(--white);
-      text-decoration: none;
-    }
+    /* FOOTER */
+    footer { background: var(--black); border-top: 1px solid var(--mid); padding: 3rem 5%; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-logo { font-family: var(--font-display); font-size: 1.4rem; letter-spacing: 0.06em; color: var(--white); text-decoration: none; }
     .footer-logo span { color: var(--orange); }
-    footer p {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-    footer a {
-      color: var(--muted);
-      text-decoration: none;
-    }
+    footer p { font-size: 0.8rem; color: var(--muted); }
+    footer a { color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--orange); }
 
-    /* ─── SCROLL REVEAL ─── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .cinematic-strip{position:relative;width:100%;height:clamp(200px,30vw,500px);overflow:hidden;}
-    .cinematic-strip img{width:100%;height:100%;object-fit:cover;display:block;}
-    .cinematic-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,10,.45) 0%,rgba(10,10,10,.1) 40%,rgba(10,10,10,.1) 60%,rgba(10,10,10,.6) 100%);}
-    .cinematic-label{position:absolute;bottom:1.8rem;left:5%;font-family:var(--font-cond);font-size:clamp(.7rem,1.2vw,.9rem);font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:rgba(245,240,235,.5);}
-    .session-photo{border-radius:3px;overflow:hidden;margin-bottom:1.5rem;aspect-ratio:16/7;}
-    .session-photo img{width:100%;height:100%;object-fit:cover;display:block;}
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;max-width:1200px;}
-    .gallery-grid div{overflow:hidden;background:#111;}
-    .gallery-vid-cell video { width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s cubic-bezier(.16,1,.3,1); }
-    .gallery-vid-cell:hover video { transform:scale(1.03); }
-    .gallery-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.16,1,.3,1),filter .5s ease;filter:grayscale(20%);}
-    .gallery-grid div:hover img{transform:scale(1.05);filter:grayscale(0%);}
-    .g-wide{grid-column:span 2;aspect-ratio:16/9;}
-    .g-tall{grid-column:span 1;aspect-ratio:3/4;}
-    @media(max-width:768px){.gallery-grid{grid-template-columns:1fr 1fr;gap:3px;}.g-wide{grid-column:span 2;aspect-ratio:4/3;}.g-tall{grid-column:span 1;aspect-ratio:1/1;}}
-    @media(max-width:480px){.gallery-grid{grid-template-columns:1fr;}.g-wide,.g-tall{grid-column:span 1;aspect-ratio:16/9;}}
+    /* SCROLL REVEAL */
+    .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -946,6 +330,8 @@
     <li><a href="#about">About</a></li>
     <li><a href="#sessions">Sessions</a></li>
     <li><a href="#aau">AAU</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#register" class="nav-cta">Register Now</a></li>
   </ul>
@@ -955,81 +341,53 @@
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#programs" onclick="closeMobile()">Programs</a>
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#sessions" onclick="closeMobile()">Sessions</a>
-  <a href="#aau" onclick="closeMobile()">AAU / Travel Team</a>
+  <a href="#programs"     onclick="closeMobile()">Programs</a>
+  <a href="#about"        onclick="closeMobile()">About</a>
+  <a href="#sessions"     onclick="closeMobile()">Sessions</a>
+  <a href="#aau"          onclick="closeMobile()">AAU / Travel Team</a>
   <a href="#threeonthree" onclick="closeMobile()">3-on-3</a>
-  <a href="#gallery" onclick="closeMobile()">Gallery</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="#register" onclick="closeMobile()" style="color:var(--orange)">Register Now →</a>
+  <a href="#gallery"      onclick="closeMobile()">Gallery</a>
+  <a href="#faq"          onclick="closeMobile()">FAQ</a>
+  <a href="#contact"      onclick="closeMobile()">Contact</a>
+  <a href="#register"     onclick="closeMobile()" style="color:var(--orange)">Register Now →</a>
 </div>
 
 <!-- HERO -->
 <section id="hero">
   <div class="hero-video-bg">
-    <video autoplay muted loop playsinline class="hero-kenburns" poster="https://static.wixstatic.com/media/11062b_70fec86f07db485ca1b232ba65682e20f000.jpg/v1/fill/w_1728,h_580,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/11062b_70fec86f07db485ca1b232ba65682e20f000.jpg" aria-hidden="true">
-      <source src="https://video.wixstatic.com/video/11062b_70fec86f07db485ca1b232ba65682e20/720p/mp4/file.mp4" type="video/mp4" />
-      <img src="https://static.wixstatic.com/media/11062b_70fec86f07db485ca1b232ba65682e20f000.jpg/v1/fill/w_1728,h_580,al_c,q_85,usm_0.33_1.00_0.00,enc_avif,quality_auto/11062b_70fec86f07db485ca1b232ba65682e20f000.jpg" alt="" />
+    <video autoplay muted loop playsinline class="hero-kenburns" poster="images/hero-bg.jpg" aria-hidden="true">
+      <source src="videos/hero-bg.mp4" type="video/mp4" />
+      <img src="images/hero-bg.jpg" alt="" />
     </video>
     <div class="hero-overlay"></div>
   </div>
   <div class="court-lines"></div>
   <div class="hero-number">23</div>
-
   <div class="hero-content">
     <div class="hero-tag">Milton, Ontario · Est. 2014</div>
-    <h1>
-      Train Like
-      <span class="accent">A Pro.</span>
-    </h1>
-    <p class="hero-sub">
-      Milton's first elite basketball skills &amp; player development facility.
-      From 8 years old to university level — we build complete athletes.
-    </p>
+    <h1>Train Like <span class="accent">A Pro.</span></h1>
+    <p class="hero-sub">Milton's first elite basketball skills &amp; player development facility. From 8 years old to university level — we build complete athletes.</p>
     <div class="hero-actions">
       <a href="#register" class="btn-primary">Book a Session</a>
       <a href="#programs" class="btn-ghost">Explore Programs</a>
     </div>
   </div>
-
   <div class="hero-stats">
-    <div class="stat-item">
-      <div class="stat-num">10+</div>
-      <div class="stat-label">Years Coaching</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">AAA</div>
-      <div class="stat-label">Division 1 Level</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">8+</div>
-      <div class="stat-label">Champs Earned</div>
-    </div>
+    <div class="stat-item"><div class="stat-num">10+</div><div class="stat-label">Years Coaching</div></div>
+    <div class="stat-item"><div class="stat-num">AAA</div><div class="stat-label">Division 1 Level</div></div>
+    <div class="stat-item"><div class="stat-num">8+</div><div class="stat-label">Champs Earned</div></div>
   </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker-wrap" aria-hidden="true">
   <div class="ticker-track">
-    <span>Elite Skills Training</span>
-    <span>Player Development</span>
-    <span>Private Sessions</span>
-    <span>Group Training</span>
-    <span>AAU Travel Team</span>
-    <span>3-on-3 League</span>
-    <span>Milton Ontario</span>
-    <span>All Skill Levels</span>
-    <span>Ages 8 and Up</span>
-    <span>Elite Skills Training</span>
-    <span>Player Development</span>
-    <span>Private Sessions</span>
-    <span>Group Training</span>
-    <span>AAU Travel Team</span>
-    <span>3-on-3 League</span>
-    <span>Milton Ontario</span>
-    <span>All Skill Levels</span>
-    <span>Ages 8 and Up</span>
+    <span>Elite Skills Training</span><span>Player Development</span><span>Private Sessions</span>
+    <span>Group Training</span><span>AAU Travel Team</span><span>3-on-3 League</span>
+    <span>Milton Ontario</span><span>All Skill Levels</span><span>Ages 8 and Up</span>
+    <span>Elite Skills Training</span><span>Player Development</span><span>Private Sessions</span>
+    <span>Group Training</span><span>AAU Travel Team</span><span>3-on-3 League</span>
+    <span>Milton Ontario</span><span>All Skill Levels</span><span>Ages 8 and Up</span>
   </div>
 </div>
 
@@ -1041,74 +399,32 @@
       <h2>Our Programs</h2>
       <p class="section-intro">Comprehensive training built around your athlete's goals, skill level, and age. We meet players where they are.</p>
     </div>
-    <a href="#register" class="btn-ghost">View All →</a>
+    <a href="#register" class="btn-ghost">Register Now →</a>
   </div>
   <div class="programs-grid reveal">
     <div class="program-card">
-      <div class="program-icon">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="24" cy="24" r="20" stroke="#F4600C" stroke-width="2"/>
-          <path d="M24 4 C24 4 14 14 14 24 C14 34 24 44 24 44" stroke="#F4600C" stroke-width="2"/>
-          <path d="M24 4 C24 4 34 14 34 24 C34 34 24 44 24 44" stroke="#F4600C" stroke-width="2"/>
-          <path d="M4 24 H44" stroke="#F4600C" stroke-width="2"/>
-        </svg>
-      </div>
+      <div class="program-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="#F4600C" stroke-width="2"/><path d="M24 4C24 4 14 14 14 24C14 34 24 44 24 44" stroke="#F4600C" stroke-width="2"/><path d="M24 4C24 4 34 14 34 24C34 34 24 44 24 44" stroke="#F4600C" stroke-width="2"/><path d="M4 24H44" stroke="#F4600C" stroke-width="2"/></svg></div>
       <h3>Private Sessions</h3>
-      <p>1-on-1 with Coach JP. Laser-focused on your individual weaknesses. Ball handling, shooting, finishing, and defence all covered in an intense, personalized setting.</p>
-      <div class="tag-row">
-        <span class="mini-tag">1 Athlete</span>
-        <span class="mini-tag">All Ages</span>
-        <span class="mini-tag">Flexible Scheduling</span>
-      </div>
+      <p>1-on-1 with Coach JP. Laser-focused on your individual weaknesses. Ball handling, shooting, finishing, and defence in an intense, personalized setting.</p>
+      <div class="tag-row"><span class="mini-tag">1 Athlete</span><span class="mini-tag">All Ages</span><span class="mini-tag">Flexible Scheduling</span></div>
     </div>
     <div class="program-card">
-      <div class="program-icon">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="14" cy="16" r="6" stroke="#F4600C" stroke-width="2"/>
-          <circle cx="34" cy="16" r="6" stroke="#F4600C" stroke-width="2"/>
-          <circle cx="24" cy="32" r="6" stroke="#F4600C" stroke-width="2"/>
-          <path d="M8 40 C8 33 20 28 24 28" stroke="#F4600C" stroke-width="2" stroke-linecap="round"/>
-          <path d="M40 40 C40 33 28 28 24 28" stroke="#F4600C" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </div>
+      <div class="program-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="14" cy="16" r="6" stroke="#F4600C" stroke-width="2"/><circle cx="34" cy="16" r="6" stroke="#F4600C" stroke-width="2"/><circle cx="24" cy="32" r="6" stroke="#F4600C" stroke-width="2"/><path d="M8 40C8 33 20 28 24 28" stroke="#F4600C" stroke-width="2" stroke-linecap="round"/><path d="M40 40C40 33 28 28 24 28" stroke="#F4600C" stroke-width="2" stroke-linecap="round"/></svg></div>
       <h3>Semi-Private Sessions</h3>
-      <p>Train with 2–5 athletes and benefit from competitive reps, peer energy, and a low-ratio training environment that still delivers personalized attention.</p>
-      <div class="tag-row">
-        <span class="mini-tag">2–5 Athletes</span>
-        <span class="mini-tag">Ages 12+</span>
-        <span class="mini-tag">Competitive</span>
-      </div>
+      <p>Train with 2–5 athletes. Benefit from competitive reps, peer energy, and a low-ratio environment that still delivers personalized attention.</p>
+      <div class="tag-row"><span class="mini-tag">2–5 Athletes</span><span class="mini-tag">Ages 12+</span><span class="mini-tag">Competitive</span></div>
     </div>
     <div class="program-card">
-      <div class="program-icon">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="8" width="40" height="32" rx="3" stroke="#F4600C" stroke-width="2"/>
-          <line x1="24" y1="8" x2="24" y2="40" stroke="#F4600C" stroke-width="2"/>
-          <circle cx="12" cy="24" r="4" stroke="#F4600C" stroke-width="2"/>
-          <circle cx="36" cy="24" r="4" stroke="#F4600C" stroke-width="2"/>
-        </svg>
-      </div>
+      <div class="program-icon"><svg viewBox="0 0 48 48" fill="none"><rect x="4" y="8" width="40" height="32" rx="3" stroke="#F4600C" stroke-width="2"/><line x1="24" y1="8" x2="24" y2="40" stroke="#F4600C" stroke-width="2"/><circle cx="12" cy="24" r="4" stroke="#F4600C" stroke-width="2"/><circle cx="36" cy="24" r="4" stroke="#F4600C" stroke-width="2"/></svg></div>
       <h3>Group Sessions</h3>
-      <p>Packages of 10+ sessions for groups of 6–9 athletes. Learn team concepts, 1v1 defence, pick-and-roll execution, and strength conditioning in a squad environment.</p>
-      <div class="tag-row">
-        <span class="mini-tag">6–9 Athletes</span>
-        <span class="mini-tag">10-Pack Minimum</span>
-        <span class="mini-tag">Team Concepts</span>
-      </div>
+      <p>Packages of 10+ sessions for groups of 6–9 athletes. Team concepts, pick-and-roll execution, and conditioning in a squad environment.</p>
+      <div class="tag-row"><span class="mini-tag">6–9 Athletes</span><span class="mini-tag">10-Pack Minimum</span><span class="mini-tag">Team Concepts</span></div>
     </div>
     <div class="program-card">
-      <div class="program-icon">
-        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24 6 L28 18 H42 L31 26 L35 38 L24 30 L13 38 L17 26 L6 18 H20 Z" stroke="#F4600C" stroke-width="2" fill="none"/>
-        </svg>
-      </div>
+      <div class="program-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M24 6L28 18H42L31 26L35 38L24 30L13 38L17 26L6 18H20Z" stroke="#F4600C" stroke-width="2" fill="none"/></svg></div>
       <h3>Rep &amp; Team Training</h3>
-      <p>Custom training blocks designed for competitive rep teams. Sharpen individual skills alongside team systems, spatial awareness, and in-game decision making.</p>
-      <div class="tag-row">
-        <span class="mini-tag">Whole Teams</span>
-        <span class="mini-tag">Rep Level</span>
-        <span class="mini-tag">Custom Programs</span>
-      </div>
+      <p>Custom training blocks for competitive rep teams. Sharpen individual skills alongside team systems, spatial awareness, and in-game decision making.</p>
+      <div class="tag-row"><span class="mini-tag">Whole Teams</span><span class="mini-tag">Rep Level</span><span class="mini-tag">Custom Programs</span></div>
     </div>
   </div>
 </section>
@@ -1118,26 +434,20 @@
   <div class="about-grid">
     <div class="about-visual reveal">
       <div class="about-img-box">
-        <img src="https://static.wixstatic.com/media/2cb6b1_7dcdabd77c2a43ee95b89520916ca0ec~mv2_d_1264_1264_s_2.jpg/v1/crop/x_0,y_208,w_1264,h_580/fill/w_1264,h_576,al_c,q_85,enc_avif,quality_auto/2cb6b1_7dcdabd77c2a43ee95b89520916ca0ec~mv2_d_1264_1264_s_2.jpg" alt="Training session at The LAB Basketball" width="1264" height="576" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:left center;display:block;" />
+        <!-- FIX: local path replaces wixstatic URL -->
+        <img src="images/about-training.jpg" alt="Training session at The LAB Basketball in Milton" width="1264" height="576" loading="lazy" />
       </div>
-      <div class="about-badge">
-        <strong>10+</strong>
-        <span>Yrs Exp</span>
-      </div>
+      <div class="about-badge"><strong>10+</strong><span>Yrs Exp</span></div>
     </div>
     <div class="about-text reveal">
       <span class="section-tag">Who We Are</span>
       <h2>For the Love<br>of the Game</h2>
-      <p>
-        <strong>JP Albano</strong> is the Founder and Head Trainer of THE LAB Basketball. His journey began overseas after a tournament recruiter spotted his championship performance — he later earned a Mythical Five award during his rookie professional season. When he returned to Toronto, his passion turned to giving back.
-      </p>
-      <p>
-        JP moved to Milton and became Head Coach of a youth rep team in 2014, earning them a <strong>Division 1 (AAA) ranking</strong> — the province's highest standard — by mid-season, and winning multiple championships including AAU tournaments in <strong>New York and Pennsylvania</strong>.
-      </p>
-      <p>
-        Seeing a gap in Milton's training landscape — no private or small-group facility existed — JP opened <strong>THE LAB Basketball</strong> to give athletes the personalized reps and attention they deserve.
-      </p>
-      
+      <p><strong>JP Albano</strong> is the Founder and Head Trainer of THE LAB Basketball. His journey began overseas after a tournament recruiter spotted his championship performance — he later earned a Mythical Five award during his rookie professional season. When he returned to Toronto, his passion turned to giving back.</p>
+      <p>JP moved to Milton and became Head Coach of a youth rep team in 2014, earning them a <strong>Division 1 (AAA) ranking</strong> — the province's highest standard — by mid-season, winning multiple championships including AAU tournaments in <strong>New York and Pennsylvania</strong>.</p>
+      <p>Seeing a gap in Milton's training landscape — no private or small-group facility existed — JP opened <strong>THE LAB Basketball</strong> to give athletes the personalized reps and attention they deserve.</p>
+      <!-- FIX: opening <div class="credentials"> was missing from previous version -->
+      <div class="credentials">
+        <div class="cred-item">NCCP Certified (National Coaching Certification Program)</div>
         <div class="cred-item">Long Term Athlete Development (LTAD) Qualified</div>
         <div class="cred-item">Former Professional Player — International Career</div>
         <div class="cred-item">Multiple GTA &amp; AAU Championship Titles</div>
@@ -1159,93 +469,43 @@
   <h2 class="reveal">What to Expect</h2>
   <div class="sessions-layout">
     <div class="sessions-nav">
-      <div class="session-tab active" onclick="switchTab(0)">
-        <h4>Ball Handling</h4>
-        <p>1-ball &amp; 2-ball mastery</p>
-      </div>
-      <div class="session-tab" onclick="switchTab(1)">
-        <h4>Shooting</h4>
-        <p>Catch, release &amp; create</p>
-      </div>
-      <div class="session-tab" onclick="switchTab(2)">
-        <h4>Finishing</h4>
-        <p>Attack the rim with finesse</p>
-      </div>
-      <div class="session-tab" onclick="switchTab(3)">
-        <h4>Defence &amp; IQ</h4>
-        <p>Stop your opponent cold</p>
-      </div>
-      <div class="session-tab" onclick="switchTab(4)">
-        <h4>Conditioning</h4>
-        <p>Strength &amp; athleticism</p>
-      </div>
+      <div class="session-tab active" onclick="switchTab(0)"><h4>Ball Handling</h4><p>1-ball &amp; 2-ball mastery</p></div>
+      <div class="session-tab" onclick="switchTab(1)"><h4>Shooting</h4><p>Catch, release &amp; create</p></div>
+      <div class="session-tab" onclick="switchTab(2)"><h4>Finishing</h4><p>Attack the rim with finesse</p></div>
+      <div class="session-tab" onclick="switchTab(3)"><h4>Defence &amp; IQ</h4><p>Stop your opponent cold</p></div>
+      <div class="session-tab" onclick="switchTab(4)"><h4>Conditioning</h4><p>Strength &amp; athleticism</p></div>
     </div>
     <div class="session-panels">
       <div class="session-panel active">
-        <div class="session-photo"><img src="https://static.wixstatic.com/media/2cb6b1_0bd62aa6d67c4d35918101d00de95497~mv2.jpeg/v1/crop/x_0,y_7,w_1600,h_997/fill/w_900,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202020-12-30%20at%204_36_52%20PM%20.jpeg" alt="Ball handling drills at The LAB" width="900" height="400" loading="lazy" /></div>
+        <div class="session-photo"><img src="images/session-ball-handling.jpg" alt="Ball handling drills at The LAB Basketball" width="900" height="400" loading="lazy" /></div>
         <h3>Ball Handling</h3>
         <p>Master the most fundamental weapon in basketball. Athletes work through a series of 1-ball and 2-ball handling drills designed to build touch, confidence under pressure, and the ability to read a defence.</p>
-        <div class="session-features">
-          <span class="feat-item">1-ball isolation patterns</span>
-          <span class="feat-item">2-ball coordination drills</span>
-          <span class="feat-item">Stationary defender reads</span>
-          <span class="feat-item">Agility ladder integration</span>
-          <span class="feat-item">Pylon weave sequences</span>
-          <span class="feat-item">Speed dribble development</span>
-        </div>
+        <div class="session-features"><span class="feat-item">1-ball isolation patterns</span><span class="feat-item">2-ball coordination drills</span><span class="feat-item">Stationary defender reads</span><span class="feat-item">Agility ladder integration</span><span class="feat-item">Pylon weave sequences</span><span class="feat-item">Speed dribble development</span></div>
         <span class="age-pill">Ages 8 and Up</span>
       </div>
       <div class="session-panel">
-        <div class="session-photo"><img src="https://static.wixstatic.com/media/2cb6b1_732414644ae842bc85595e3ab2a4ba83~mv2.jpeg/v1/crop/x_306,y_78,w_988,h_609/fill/w_916,h_564,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202020-12-30%20at%204_36_51%20PM_.jpeg" alt="Shooting clinic at The LAB" width="900" height="400" loading="lazy" /></div>
+        <div class="session-photo"><img src="images/session-shooting.jpg" alt="Shooting clinic at The LAB Basketball" width="900" height="400" loading="lazy" /></div>
         <h3>Shooting Clinic</h3>
         <p>Efficient catch-and-release mechanics, proper shooting form from various spots on the floor, and advanced methods to create space off the dribble into a quality shot.</p>
-        <div class="session-features">
-          <span class="feat-item">Catch &amp; release mechanics</span>
-          <span class="feat-item">Off-dribble shooting</span>
-          <span class="feat-item">Form correction &amp; reps</span>
-          <span class="feat-item">Mid-range development</span>
-          <span class="feat-item">Footwork &amp; balance</span>
-          <span class="feat-item">Game-speed repetitions</span>
-        </div>
+        <div class="session-features"><span class="feat-item">Catch &amp; release mechanics</span><span class="feat-item">Off-dribble shooting</span><span class="feat-item">Form correction &amp; reps</span><span class="feat-item">Mid-range development</span><span class="feat-item">Footwork &amp; balance</span><span class="feat-item">Game-speed repetitions</span></div>
         <span class="age-pill">All Levels Welcome</span>
       </div>
       <div class="session-panel">
         <h3>Finishing at the Rim</h3>
-        <p>Learn unique, creative ways to attack the basket. Get comfortable finishing with both hands, through contact, and with an array of layup packages that high-level defenders can't predict.</p>
-        <div class="session-features">
-          <span class="feat-item">Floaters &amp; runners</span>
-          <span class="feat-item">Contact finishing</span>
-          <span class="feat-item">Euro-step variations</span>
-          <span class="feat-item">Reverse layup packages</span>
-          <span class="feat-item">1-on-1 vs trainer</span>
-          <span class="feat-item">And-one situations</span>
-        </div>
+        <p>Learn unique, creative ways to attack the basket. Get comfortable finishing with both hands, through contact, and with an array of layup packages that defenders can't predict.</p>
+        <div class="session-features"><span class="feat-item">Floaters &amp; runners</span><span class="feat-item">Contact finishing</span><span class="feat-item">Euro-step variations</span><span class="feat-item">Reverse layup packages</span><span class="feat-item">1-on-1 vs trainer</span><span class="feat-item">And-one situations</span></div>
         <span class="age-pill">Ages 10 and Up</span>
       </div>
       <div class="session-panel">
         <h3>Defence &amp; Basketball IQ</h3>
-        <p>Learn how to stop your opponent just as effectively as you can beat yours. JP teaches defensive positioning, reading screens, and in-game decision-making that translates directly to wins.</p>
-        <div class="session-features">
-          <span class="feat-item">On-ball defence stance</span>
-          <span class="feat-item">Help-side positioning</span>
-          <span class="feat-item">Jab step reads</span>
-          <span class="feat-item">Triple threat decisions</span>
-          <span class="feat-item">Pick-and-roll coverage</span>
-          <span class="feat-item">1-on-1 full-length</span>
-        </div>
+        <p>Learn how to stop your opponent just as effectively as you can beat yours. JP teaches defensive positioning, reading screens, and decision-making that translates directly to wins.</p>
+        <div class="session-features"><span class="feat-item">On-ball defence stance</span><span class="feat-item">Help-side positioning</span><span class="feat-item">Jab step reads</span><span class="feat-item">Triple threat decisions</span><span class="feat-item">Pick-and-roll coverage</span><span class="feat-item">1-on-1 full-length</span></div>
         <span class="age-pill">Ages 12 and Up</span>
       </div>
       <div class="session-panel">
         <h3>Strength &amp; Conditioning</h3>
         <p>Every session includes demanding conditioning work designed to push athletes past their limits — building the physical and mental toughness that separates good players from great ones.</p>
-        <div class="session-features">
-          <span class="feat-item">Medicine ball circuits</span>
-          <span class="feat-item">Agility ladder work</span>
-          <span class="feat-item">Explosive footwork</span>
-          <span class="feat-item">Endurance training</span>
-          <span class="feat-item">Core &amp; stability</span>
-          <span class="feat-item">Mental resilience</span>
-        </div>
+        <div class="session-features"><span class="feat-item">Medicine ball circuits</span><span class="feat-item">Agility ladder work</span><span class="feat-item">Explosive footwork</span><span class="feat-item">Endurance training</span><span class="feat-item">Core &amp; stability</span><span class="feat-item">Mental resilience</span></div>
         <span class="age-pill">All Ages · All Levels</span>
       </div>
     </div>
@@ -1258,34 +518,25 @@
     <div class="reveal">
       <span class="section-tag">Exposure &amp; Competition</span>
       <h2>AAU Travel<br>Team</h2>
-      <p class="section-intro">Compete at the highest levels of youth basketball in Canada and the United States. THE LAB's travel team program is built for athletes ready to take the next step.</p>
-      <a href="#contact" class="btn-primary" style="margin-top:2rem; display:inline-block;">Inquire About AAU</a>
+      <p class="section-intro">Compete at the highest levels of youth basketball in Canada and the United States. THE LAB's travel team is built for athletes ready to take the next step.</p>
+      <a href="#contact" class="btn-primary" style="margin-top:2rem;display:inline-block;">Inquire About AAU</a>
     </div>
     <div class="aau-card reveal">
       <h3>Proven Track Record</h3>
       <p>THE LAB's teams have competed across the GTA and taken on elite AAU programs in the United States, bringing home hardware.</p>
       <div class="trophy-list">
-        <div class="trophy-item">
-          <span class="icon">🏆</span>
-          <span>Division 1 (AAA) Ontario Basketball ranking — the highest provincial standard</span>
-        </div>
-        <div class="trophy-item">
-          <span class="icon">🏅</span>
-          <span>Multiple GTA tournament championships across age groups</span>
-        </div>
-        <div class="trophy-item">
-          <span class="icon">🇺🇸</span>
-          <span>AAU tournament wins in New York &amp; Pennsylvania</span>
-        </div>
-        <div class="trophy-item">
-          <span class="icon">📋</span>
-          <span>NCCP-certified coaching at every level of competition</span>
-        </div>
+        <div class="trophy-item"><span>🏆</span><span>Division 1 (AAA) Ontario Basketball ranking — the highest provincial standard</span></div>
+        <div class="trophy-item"><span>🏅</span><span>Multiple GTA tournament championships across age groups</span></div>
+        <div class="trophy-item"><span>🇺🇸</span><span>AAU tournament wins in New York &amp; Pennsylvania</span></div>
+        <div class="trophy-item"><span>📋</span><span>NCCP-certified coaching at every level of competition</span></div>
       </div>
       <a href="#contact" class="btn-ghost">Get on the Roster →</a>
     </div>
   </div>
-  <div class="reveal" style="margin-top:3rem;border-radius:4px;overflow:hidden;"><img src="https://static.wixstatic.com/media/2cb6b1_ab4bdbad76b94f80b05dfd9878c7fb94~mv2.jpg/v1/fill/w_1039,h_576,al_c,q_85,enc_avif,quality_auto/Picture1.jpg" alt="The LAB Basketball AAU travel team" width="1039" height="576" loading="lazy" style="width:100%;height:auto;display:block;" /></div>
+  <!-- FIX: local path replaces wixstatic URL -->
+  <div class="reveal" style="margin-top:3rem;border-radius:4px;overflow:hidden;">
+    <img src="images/aau-team.jpg" alt="The LAB Basketball AAU travel team" width="1039" height="576" loading="lazy" style="width:100%;height:auto;display:block;" />
+  </div>
 </section>
 
 <!-- 3-ON-3 -->
@@ -1294,62 +545,64 @@
     <div class="three-text reveal">
       <span class="section-tag">Fast. Fun. Competitive.</span>
       <h2>3-on-3 Basketball</h2>
-      <p>The fastest growing format in basketball — now at THE LAB. Our 3-on-3 program builds spacing awareness, quick decision-making, and competitive edge in a high-intensity small-sided format that's pure fun.</p>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <p>The fastest growing format in basketball — now at THE LAB. Our 3-on-3 program builds spacing awareness, quick decision-making, and competitive edge in a high-intensity format that's pure fun.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
         <a href="https://form.jotform.com/90083784167161" target="_blank" rel="noopener" class="btn-primary">3-on-3 Registration</a>
         <a href="#contact" class="btn-ghost">Learn More</a>
       </div>
     </div>
     <div class="three-visual reveal">
-      <div class="three-badge">
-        <strong>3v3</strong>
-        <span>Play Ball</span>
-      </div>
+      <div class="three-badge"><strong>3v3</strong><span>Play Ball</span></div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY -->
-<section id="gallery" style="background:var(--dark);padding:7rem 5%;">
-  <div class="reveal" style="margin-bottom:3.5rem;"><span class="section-tag">Inside The Lab</span><h2>See The Work</h2><p class="section-intro">Real athletes. Real reps. This is what training at THE LAB looks like.</p></div>
-    <div class="gallery-grid reveal">
-    <div class="g-wide"><img src="https://static.wixstatic.com/media/2cb6b1_0bd62aa6d67c4d35918101d00de95497~mv2.jpeg/v1/crop/x_0,y_7,w_1600,h_997/fill/w_900,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202020-12-30%20at%204_36_52%20PM%20.jpeg" alt="Group training session at The LAB Milton" width="900" height="560" loading="lazy" /></div>
+<section id="gallery">
+  <div class="reveal" style="margin-bottom:3.5rem;">
+    <span class="section-tag">Inside The Lab</span>
+    <h2>See The Work</h2>
+    <p class="section-intro">Real athletes. Real reps. This is what training at THE LAB looks like.</p>
+  </div>
+  <!-- FIX: all wixstatic / video.wixstatic URLs replaced with local paths -->
+  <div class="gallery-grid reveal">
+    <div class="g-wide"><img src="images/session-shooting.jpg" alt="Group training session at The LAB Milton" width="900" height="560" loading="lazy" /></div>
     <div class="g-tall gallery-vid-cell">
-      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_913b84b501034496b75fc7bf248327a3f000.jpg/v1/fill/w_480,h_847,al_c,q_80,enc_avif,quality_auto/2cb6b1_913b84b501034496b75fc7bf248327a3f000.jpg" aria-label="Athlete skipping rope training at The LAB Basketball">
-        <source src="https://video.wixstatic.com/video/2cb6b1_913b84b501034496b75fc7bf248327a3/720p/mp4/file.mp4" type="video/mp4" />
-        <img src="https://static.wixstatic.com/media/2cb6b1_913b84b501034496b75fc7bf248327a3f000.jpg/v1/fill/w_480,h_847,al_c,q_80,enc_avif,quality_auto/2cb6b1_913b84b501034496b75fc7bf248327a3f000.jpg" alt="Athlete skipping rope training at The LAB Basketball" loading="lazy" />
+      <video autoplay muted loop playsinline poster="images/gallery-poster-1.jpg" aria-label="Athlete training at The LAB Basketball">
+        <source src="videos/gallery-1.mp4" type="video/mp4" />
+        <img src="images/gallery-poster-1.jpg" alt="Athlete training at The LAB" loading="lazy" />
       </video>
     </div>
     <div class="g-tall gallery-vid-cell">
-      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_efc2c89775bf469886441a8fc3b2dedff000.jpg/v1/fill/w_480,h_629,al_c,q_80,enc_avif,quality_auto/2cb6b1_efc2c89775bf469886441a8fc3b2dedff000.jpg" aria-label="Basketball skills training at The LAB Milton">
-        <source src="https://video.wixstatic.com/video/2cb6b1_efc2c89775bf469886441a8fc3b2dedf/480p/mp4/file.mp4" type="video/mp4" />
-        <img src="https://static.wixstatic.com/media/2cb6b1_efc2c89775bf469886441a8fc3b2dedff000.jpg/v1/fill/w_480,h_629,al_c,q_80,enc_avif,quality_auto/2cb6b1_efc2c89775bf469886441a8fc3b2dedff000.jpg" alt="Basketball skills training at The LAB Milton" loading="lazy" />
+      <video autoplay muted loop playsinline poster="images/gallery-poster-2.jpg" aria-label="Basketball skills training at The LAB Milton">
+        <source src="videos/gallery-2.mp4" type="video/mp4" />
+        <img src="images/gallery-poster-2.jpg" alt="Skills training at The LAB Milton" loading="lazy" />
       </video>
     </div>
-    <div class="g-wide"><img src="https://static.wixstatic.com/media/2cb6b1_732414644ae842bc85595e3ab2a4ba83~mv2.jpeg/v1/crop/x_306,y_78,w_988,h_609/fill/w_916,h_564,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202020-12-30%20at%204_36_51%20PM_.jpeg" alt="Youth basketball training session Milton" width="916" height="564" loading="lazy" /></div>
+    <div class="g-wide"><img src="images/session-ball-handling.jpg" alt="Youth basketball training session Milton" width="916" height="564" loading="lazy" /></div>
     <div class="g-tall gallery-vid-cell">
-      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_faa180c66de94124b932c528211d9498f000.jpg/v1/fill/w_480,h_654,al_c,q_80,enc_avif,quality_auto/2cb6b1_faa180c66de94124b932c528211d9498f000.jpg" aria-label="Player development drill at The LAB">
-        <source src="https://video.wixstatic.com/video/2cb6b1_faa180c66de94124b932c528211d9498/480p/mp4/file.mp4" type="video/mp4" />
-        <img src="https://static.wixstatic.com/media/2cb6b1_faa180c66de94124b932c528211d9498f000.jpg/v1/fill/w_480,h_654,al_c,q_80,enc_avif,quality_auto/2cb6b1_faa180c66de94124b932c528211d9498f000.jpg" alt="Player development drill at The LAB" loading="lazy" />
-      </video>
-    </div>
-    <div class="g-tall gallery-vid-cell">
-      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_e920f4fa45b14a53a30e8caa9ab1839ff000.jpg/v1/fill/w_480,h_647,al_c,q_80,enc_avif,quality_auto/2cb6b1_e920f4fa45b14a53a30e8caa9ab1839ff000.jpg" aria-label="Basketball footwork training at The LAB">
-        <source src="https://video.wixstatic.com/video/2cb6b1_e920f4fa45b14a53a30e8caa9ab1839f/480p/mp4/file.mp4" type="video/mp4" />
-        <img src="https://static.wixstatic.com/media/2cb6b1_e920f4fa45b14a53a30e8caa9ab1839ff000.jpg/v1/fill/w_480,h_647,al_c,q_80,enc_avif,quality_auto/2cb6b1_e920f4fa45b14a53a30e8caa9ab1839ff000.jpg" alt="Basketball footwork training at The LAB" loading="lazy" />
-      </video>
-    </div>
-    <div class="g-wide"><img src="https://static.wixstatic.com/media/2cb6b1_c99dafacb3814646af75f0fcb5197c2b~mv2.jpeg/v1/crop/x_0,y_0,w_1125,h_692/fill/w_918,h_564,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202020-12-30%20at%204_36_52%20PM_.jpeg" alt="Skills training at The LAB Milton Ontario" width="918" height="564" loading="lazy" /></div>
-    <div class="g-tall gallery-vid-cell">
-      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_da682934149d46ef89edd2b774a59b03f000.jpg/v1/fill/w_480,h_569,al_c,q_80,enc_avif,quality_auto/2cb6b1_da682934149d46ef89edd2b774a59b03f000.jpg" aria-label="Shooting mechanics at The LAB Basketball">
-        <source src="https://video.wixstatic.com/video/2cb6b1_da682934149d46ef89edd2b774a59b03/480p/mp4/file.mp4" type="video/mp4" />
-        <img src="https://static.wixstatic.com/media/2cb6b1_da682934149d46ef89edd2b774a59b03f000.jpg/v1/fill/w_480,h_569,al_c,q_80,enc_avif,quality_auto/2cb6b1_da682934149d46ef89edd2b774a59b03f000.jpg" alt="Shooting mechanics at The LAB Basketball" loading="lazy" />
+      <video autoplay muted loop playsinline poster="images/gallery-poster-3.jpg" aria-label="Player development drill at The LAB">
+        <source src="videos/gallery-3.mp4" type="video/mp4" />
+        <img src="images/gallery-poster-3.jpg" alt="Player development drill at The LAB" loading="lazy" />
       </video>
     </div>
     <div class="g-tall gallery-vid-cell">
-      <video autoplay muted loop playsinline poster="https://static.wixstatic.com/media/2cb6b1_d8a5d738d3a642bca54a35665e840e7cf000.jpg/v1/fill/w_480,h_747,al_c,q_80,enc_avif,quality_auto/2cb6b1_d8a5d738d3a642bca54a35665e840e7cf000.jpg" aria-label="Dribbling drills at The LAB Basketball Milton">
-        <source src="https://video.wixstatic.com/video/2cb6b1_d8a5d738d3a642bca54a35665e840e7c/480p/mp4/file.mp4" type="video/mp4" />
-        <img src="https://static.wixstatic.com/media/2cb6b1_d8a5d738d3a642bca54a35665e840e7cf000.jpg/v1/fill/w_480,h_747,al_c,q_80,enc_avif,quality_auto/2cb6b1_d8a5d738d3a642bca54a35665e840e7cf000.jpg" alt="Dribbling drills at The LAB Basketball Milton" loading="lazy" />
+      <video autoplay muted loop playsinline poster="images/gallery-poster-4.jpg" aria-label="Basketball footwork training at The LAB">
+        <source src="videos/gallery-4.mp4" type="video/mp4" />
+        <img src="images/gallery-poster-4.jpg" alt="Basketball footwork training at The LAB" loading="lazy" />
+      </video>
+    </div>
+    <div class="g-wide"><img src="images/gallery-wide-3.jpg" alt="Skills training at The LAB Milton Ontario" width="918" height="564" loading="lazy" /></div>
+    <div class="g-tall gallery-vid-cell">
+      <video autoplay muted loop playsinline poster="images/gallery-poster-5.jpg" aria-label="Shooting mechanics at The LAB Basketball">
+        <source src="videos/gallery-5.mp4" type="video/mp4" />
+        <img src="images/gallery-poster-5.jpg" alt="Shooting mechanics at The LAB Basketball" loading="lazy" />
+      </video>
+    </div>
+    <div class="g-tall gallery-vid-cell">
+      <video autoplay muted loop playsinline poster="images/gallery-poster-6.jpg" aria-label="Dribbling drills at The LAB Basketball Milton">
+        <source src="videos/gallery-6.mp4" type="video/mp4" />
+        <img src="images/gallery-poster-6.jpg" alt="Dribbling drills at The LAB Basketball Milton" loading="lazy" />
       </video>
     </div>
   </div>
@@ -1363,20 +616,115 @@
     <div class="testimonial-card">
       <div class="quote-mark">"</div>
       <p>JP has completely transformed my son's confidence on the court. The individual attention he gets is something you can't find at the big camps. We've seen massive improvements in just a few months.</p>
-      <div class="testimonial-author">M. Robertson</div>
-      <div class="testimonial-role">Parent · Group Session</div>
+      <div class="testimonial-author">M. Robertson</div><div class="testimonial-role">Parent · Group Session</div>
     </div>
     <div class="testimonial-card">
       <div class="quote-mark">"</div>
-      <p>Training at The LAB pushed me harder than I ever expected. JP doesn't let you coast — he finds the gaps in your game and works them until they're strengths. Made my school team this year for the first time.</p>
-      <div class="testimonial-author">D. Okafor</div>
-      <div class="testimonial-role">Athlete · Age 15 · Private Sessions</div>
+      <p>Training at The LAB pushed me harder than I ever expected. JP doesn't let you coast — he finds the gaps in your game and works them until they're strengths. Made my school team for the first time this year.</p>
+      <div class="testimonial-author">D. Okafor</div><div class="testimonial-role">Athlete · Age 15 · Private Sessions</div>
     </div>
     <div class="testimonial-card">
       <div class="quote-mark">"</div>
       <p>The facility is fantastic and the environment JP creates is intense but incredibly positive. My daughter looks forward to every single session. She improved her shooting form completely in one season.</p>
-      <div class="testimonial-author">T. Singh</div>
-      <div class="testimonial-role">Parent · Semi-Private Sessions</div>
+      <div class="testimonial-author">T. Singh</div><div class="testimonial-role">Parent · Semi-Private Sessions</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="faq-layout">
+    <div class="faq-intro reveal">
+      <span class="section-tag">Got Questions?</span>
+      <h2>FAQ</h2>
+      <p>Everything parents and athletes typically want to know before their first session. Don't see your question? Reach out directly.</p>
+      <a href="#contact" class="btn-primary">Ask JP →</a>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>What ages do you train?</span><div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>THE LAB works with athletes from <strong>8 years old up to the university and professional level</strong>, both boys and girls. Programs are available for all skill levels — complete beginners through high-level rep players. Groups are separated by age and skill level based on enrollment.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>What's the difference between private, semi-private, and group?</span><div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p><strong>Private (1 athlete):</strong> Fully customized 1-on-1 with Coach JP. Maximum attention, fastest development.</p>
+          <p><strong>Semi-private (2–5 athletes):</strong> Small group with personalized feedback, competitive reps, and a lower cost per session.</p>
+          <p><strong>Group (6–9 athletes):</strong> Sold in packages of 10+ sessions. Team concepts, competitive drills, and conditioning. Separated by age or skill as needed.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>Do you offer drop-in sessions?</span><div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Drop-in availability is limited and subject to scheduling. Please <a href="#contact">contact us</a> or call <a href="tel:4164330408">416-433-0408</a> to check current drop-in options. We recommend booking a package to secure your regular spot and lock in pricing.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>How do I register and pay?</span><div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Use the forms in the <a href="#register">Register Now</a> section — there are separate forms for new players, returning players, and 3-on-3. <strong>Payment must be made immediately after submitting</strong> to officially hold your spot. Schedule details are noted on each form.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>What should my athlete bring to a session?</span><div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Proper athletic wear and basketball shoes are required. Bring a <strong>water bottle</strong> and a ball if you have one — equipment is available on-site. Sessions are high-intensity, so come fuelled and hydrated. Be ready to work hard.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>Do you train girls as well as boys?</span><div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. THE LAB is fully inclusive — both male and female athletes are welcome across all programs and age groups, at any skill level.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>Where is the facility and where do I park?</span><div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>THE LAB is at <strong>821 Main Street E, Milton ON L9T 3Z3</strong>. Parking is available at the <strong>rear of the building</strong> — the facility entrance is also at the back. Do not use the front entrance.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>Can you train our entire rep or school team?</span><div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p>Yes — Rep &amp; Team Training is available with custom programming built around your team's schedule and competitive goals. <a href="#contact">Contact us</a> to discuss a package for your season.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+          <span>What skill level does my child need to be?</span><div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <p><strong>No minimum skill level required.</strong> THE LAB works with complete beginners through elite rep and university athletes. Coach JP adapts every session to meet athletes where they are — then pushes them further.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1400,27 +748,21 @@
   <div class="contact-grid">
     <div class="contact-info reveal">
       <h3>The LAB Basketball Facility</h3>
-      <p>Located in Milton, Ontario with ample parking available at the rear of the building. All entrance is from the back of the facility.</p>
+      <p>Located in Milton, Ontario. Parking is at the rear of the building — facility entrance is also at the back.</p>
       <div class="contact-item">
         <div class="contact-icon">📍</div>
         <div class="contact-detail">
           <strong>Address</strong>
-          <span>821 Main Street E, Milton ON L9T 3Z3</span>
+          <a href="https://maps.google.com/?q=821+Main+Street+E+Milton+ON" target="_blank" rel="noopener">821 Main Street E, Milton ON L9T 3Z3</a>
         </div>
       </div>
       <div class="contact-item">
         <div class="contact-icon">📞</div>
-        <div class="contact-detail">
-          <strong>Phone</strong>
-          <a href="tel:4164330408">416-433-0408</a>
-        </div>
+        <div class="contact-detail"><strong>Phone</strong><a href="tel:4164330408">416-433-0408</a></div>
       </div>
       <div class="contact-item">
         <div class="contact-icon">✉️</div>
-        <div class="contact-detail">
-          <strong>Email</strong>
-          <a href="mailto:info@thelabbasketball.com">info@thelabbasketball.com</a>
-        </div>
+        <div class="contact-detail"><strong>Email</strong><a href="mailto:info@thelabbasketball.com">info@thelabbasketball.com</a></div>
       </div>
       <div class="social-links">
         <a href="https://www.instagram.com/the_lab_basketball/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
@@ -1436,23 +778,11 @@
     </div>
     <div class="contact-form reveal">
       <div class="form-row">
-        <div class="form-group">
-          <label for="fname">First Name</label>
-          <input type="text" id="fname" placeholder="Your first name" />
-        </div>
-        <div class="form-group">
-          <label for="lname">Last Name</label>
-          <input type="text" id="lname" placeholder="Your last name" />
-        </div>
+        <div class="form-group"><label for="fname">First Name</label><input type="text" id="fname" placeholder="Your first name" /></div>
+        <div class="form-group"><label for="lname">Last Name</label><input type="text" id="lname" placeholder="Your last name" /></div>
       </div>
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="you@example.com" />
-      </div>
-      <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" placeholder="416-xxx-xxxx" />
-      </div>
+      <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" placeholder="you@example.com" /></div>
+      <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" placeholder="416-xxx-xxxx" /></div>
       <div class="form-group">
         <label for="program">Interested In</label>
         <select id="program">
@@ -1466,12 +796,9 @@
           <option>Drop-In Session (Inquire)</option>
         </select>
       </div>
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" placeholder="Tell us about your athlete's age, position, and goals..."></textarea>
-      </div>
+      <div class="form-group"><label for="message">Message</label><textarea id="message" placeholder="Tell us about your athlete's age, position, and goals..."></textarea></div>
       <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
-      <p class="form-note">Or email directly: <a href="mailto:info@thelabbasketball.com" style="color:var(--orange)">info@thelabbasketball.com</a></p>
+      <p class="form-note">Or email: <a href="mailto:info@thelabbasketball.com" style="color:var(--orange)">info@thelabbasketball.com</a></p>
     </div>
   </div>
 </section>
@@ -1479,7 +806,8 @@
 <!-- FOOTER -->
 <footer>
   <a href="#hero" class="footer-logo">THE <span>LAB</span></a>
-  <p>© 2024 The LAB Basketball Training &amp; Development. Milton, ON.</p>
+  <!-- FIX: updated copyright year to 2025 -->
+  <p>© 2025 The LAB Basketball Training &amp; Development. Milton, ON.</p>
   <p>821 Main St E · <a href="tel:4164330408">416-433-0408</a></p>
 </footer>
 
@@ -1502,18 +830,33 @@
     document.querySelectorAll('.session-panel').forEach((p, i) => p.classList.toggle('active', i === index));
   }
 
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => observer.observe(el));
+  // FAQ accordion — one open at a time
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
 
-  // Form handler (demo)
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Contact form (demo — connect to Formspree or Netlify Forms for production)
   function handleSubmit() {
-    const name = document.getElementById('fname').value;
-    if (!name) { alert('Please fill in your name.'); return; }
-    alert('Thanks ' + name + '! Your message has been received. Coach JP will be in touch shortly.\n\nFor immediate response: info@thelabbasketball.com · 416-433-0408');
+    const name = document.getElementById('fname').value.trim();
+    if (!name) { alert('Please fill in your first name.'); return; }
+    alert('Thanks ' + name + '! Your message has been received.\nCoach JP will be in touch shortly.\n\ninfo@thelabbasketball.com · 416-433-0408');
   }
 </script>
 </body>
