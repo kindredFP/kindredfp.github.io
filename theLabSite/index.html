@@ -318,13 +318,16 @@
     /* SCROLL REVEAL */
     .reveal { opacity: 0; transform: translateY(25px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .nav-logo-img { height: 55px; width: auto; display: block; }
+    .footer-logo-img { height: 70px; width: auto; display: block; margin: 0 auto 1rem; }
   </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">THE <span>LAB</span></a>
+  <a href="#hero" class="nav-logo"><img src="images/theLabLogoBlack.png" alt="The LAB Basketball" class="nav-logo-img" /></a>
   <ul class="nav-links">
     <li><a href="#programs">Programs</a></li>
     <li><a href="#about">About</a></li>
@@ -434,8 +437,7 @@
   <div class="about-grid">
     <div class="about-visual reveal">
       <div class="about-img-box">
-        <!-- FIX: local path replaces wixstatic URL -->
-        <img src="images/about-training.jpg" alt="Training session at The LAB Basketball in Milton" width="1264" height="576" loading="lazy" />
+              <img src="images/about-training.jpg" alt="Training session at The LAB Basketball in Milton" width="1264" height="576" loading="lazy" />
       </div>
       <div class="about-badge"><strong>10+</strong><span>Yrs Exp</span></div>
     </div>
@@ -533,7 +535,6 @@
       <a href="#contact" class="btn-ghost">Get on the Roster →</a>
     </div>
   </div>
-  <!-- FIX: local path replaces wixstatic URL -->
   <div class="reveal" style="margin-top:3rem;border-radius:4px;overflow:hidden;">
     <img src="images/aau-team.jpg" alt="The LAB Basketball AAU travel team" width="1039" height="576" loading="lazy" style="width:100%;height:auto;display:block;" />
   </div>
@@ -564,7 +565,6 @@
     <h2>See The Work</h2>
     <p class="section-intro">Real athletes. Real reps. This is what training at THE LAB looks like.</p>
   </div>
-  <!-- FIX: all wixstatic / video.wixstatic URLs replaced with local paths -->
   <div class="gallery-grid reveal">
     <div class="g-wide"><img src="images/session-shooting.jpg" alt="Group training session at The LAB Milton" width="900" height="560" loading="lazy" /></div>
     <div class="g-tall gallery-vid-cell">
@@ -805,7 +805,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <a href="#hero" class="footer-logo">THE <span>LAB</span></a>
+  <a href="#hero" class="footer-logo"><img src="images/theLabLogoBlack.png" alt="The LAB Basketball" class="footer-logo-img" /></a>
   <!-- FIX: updated copyright year to 2025 -->
   <p>© 2025 The LAB Basketball Training &amp; Development. Milton, ON.</p>
   <p>821 Main St E · <a href="tel:4164330408">416-433-0408</a></p>
