@@ -61,17 +61,18 @@ var _mfpOn = function(name, f) {
 		mfp.ev.on(NS + name + EVENT_NS, f);
 	},
 	_getEl = function(className, appendTo, html, raw) {
-		var el = document.createElement('div');
+		var el = document.createElement('div'),
+			isValidAppendTarget = appendTo && (appendTo.jquery || appendTo.nodeType);
 		el.className = 'mfp-'+className;
 		if(html) {
 			el.innerHTML = html;
 		}
 		if(!raw) {
 			el = $(el);
-			if(appendTo) {
+			if(isValidAppendTarget) {
 				el.appendTo(appendTo);
 			}
-		} else if(appendTo) {
+		} else if(isValidAppendTarget && appendTo.appendChild) {
 			appendTo.appendChild(el);
 		}
 		return el;
